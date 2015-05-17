@@ -1,0 +1,694 @@
+ <!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Desarrollo ágil de Software - CEARC 2015</title>
+
+        <meta name="description" content="Curso de Desarrollo Ágil de Software para el Centro de Estudios de la Administración Pública Regional de Cantabria">
+        <meta name="author" content="Miguel Expósito Martín">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                <h1><span style="font-weight:bold;font-size:100px">Desarrollo</span> <span style="font-weight:bold;font-size:130px">ágil</span></h1>
+
+                <h1><span style="font-weight:bold;font-size:80px">de</span> <span style="color: red;font-weight:bold;font-size:120px">software</span></h1>
+
+
+                </section>
+                <section>
+                <section data-markdown>
+                <script type="text/template">
+## cómo funciona el mundo
+
+¿cómo trabajamos? ¿cómo nos han enseñado a trabajar?
+
+##diagramas de Gantt
+
+Un artefacto de la I Guerra Mundial... usado para planificar software
+
+Muchas veces se ajusta la realidad para que se parezca al diagrama
+                </script>
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+##una nueva forma de pensar
+
+menos gente, menos tiempo, menos coste, más valor entregado
+
+el término **Scrum** proviene del rugby:
+
+- basado no en cómo se debe trabajar, sino en cómo se trabaja
+- en las mejores prácticas de los mejores equipos
+- se pregunta por qué cuesta tanto entregar valor y estimar esfuerzo
+- asume la incertidumbre y adopta la creatividad
+
+###idea simple: ciclos "inspect & adapt"
+                </script>
+                </section>
+                
+
+
+                </section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+## equipos
+
+###en el mundo laboral, los equipos consiguen que el trabajo salga adelante
+
+sin embargo, todo se centra en la acción individual: 
+
+###error
+                </script>
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+## características en equipos
+
+- **trascendentes**: sentido y propósito
+
+- **autonómos**: auto-gestión y auto-organización (decisiones propias)
+
+- **multifuncionales**: disponen de todas las habilidades necesarias para completar el proyecto
+
+<small>Fuente: ["The New New Product Development Game"](https://hbr.org/1986/01/the-new-new-product-development-game), Takeuchi y Nonaka</small> 
+
+
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## tamaño de los equipos
+
+>&ldquo;añadir más personas a un proyecto retrasado tan sólo lo retrasa más&rdquo;
+
+<small>Fuente: ["The Mythical Man-Month"](http://www.amazon.com/The-Mythical-Man-Month-Engineering-Anniversary/dp/0201835959), Fred Brooks</small> 
+
+por otra parte, Putnam llegó a la conclusión de que cuando los equipos crecen por encima de **8 miembros**, su rendimiento cae drásticamente
+
+<small>Fuente: ["Familiar Metric Management - Small is Beautiful- Once Again"](http://www.qsm.com/fmm_28.pdf), Putnam & Myers</small> 
+
+
+
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## ¿por qué?
+
+estudio de George Miller (1956): el número máximo de elementos que la persona media puede retener en su memoria a corto plazo es 7
+
+investigaciones posteriores demostraron que Miller estaba equivocado: ese número no es 7...
+
+###es 4
+
+<small>Fuente: "The Magical Number 4 in Short-Term Memory: A Reconsideration of Mental Storage Capacity", Corwan, Nelson</small> 
+
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## explicación
+
+la afirmación de Brooks se explica con dos razones:
+
+- el tiempo que lleva hacer que la nueva persona "coja ritmo"
+- el número de canales de comunicación crece drásticamente con el número de personas, y sencillamente nuestro cerebro no puede con ello
+
+Nº Canales Comunicación = n * (n-1) / 2
+
+###no podemos saber qué están haciendo los demás
+
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## auto-organizado
+
+- dentro de un contexto (reglas) )y unas limitaciones (externas)
+- es necesario un grado de compromiso, motivación y educación
+- durante el período de adaptación y maduración, es necesario ***delegar***
+- el manager puede fijar las reglas del juego e ir relajándolas progresivamente
+
+
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## multifuncional
+
+###los proyectos se asignan a equipos 
+
+(no a gente, ni gente a proyectos)
+
+- es necesaria cierta estabilidad en el equipo
+- ¿como escalar? aumentando el número de equipos
+- multifuncional: reúne todas las habilidades necesarias para construir un incremento
+
+
+
+                </script>
+                </section>
+ </section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+## simplicidad
+- ¿qué es lo más simple que podría funcionar?
+- eliminar complejidad sobrante
+- "no lo vamos a necesitar"
+- se realimenta con la comunicación
+
+
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## el código simple: 
+- [pasa los tests](http://www.c2.com/cgi/wiki?UnitTestsTellYouWhenYoureDone)
+- [expresa toda idea que necesita expresar](http://www.c2.com/cgi/wiki?SelfDocumentingCode)
+- [lo dice todo una sóla vez](http://www.c2.com/cgi/wiki?OnceAndOnlyOnce)
+- [no tiene partes superfluas](http://www.c2.com/cgi/wiki?YouArentGonnaNeedIt)
+
+<small>By [Ward Cunninham](http://www.c2.com/cgi/wiki?XpSimplicityRules)</small>
+
+                </script>
+                </section>
+                </section>
+
+                <section>
+                <section data-markdown>
+                <script type="text/template">
+## realimentación
+- los cambios son inevitables, pero necesitan de realimentación
+- la realimentación nos acerca a nuestros objetivos
+- cuanta más mejor: cuanto antes sepamos, antes podemos adaptarnos
+                </script>
+                </section>	
+                <section data-markdown>
+                <script type="text/template">
+## formas de realimentación
+- opiniones del equipo sobre una idea
+- "pinta" del código una vez implementada la idea
+- si los tests se han podido escribir fácilmente
+- si los tests se ejecutan
+- si la idea funciona una vez puesta en marcha
+                </script>
+                </section>						
+                <section data-markdown>
+                <script type="text/template">
+## ¡ojo!
+
+demasiada realimentación...
+
+![Estrés](./img/stress.jpg)
+                </script>
+                </section>						
+
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+## valentía
+- acción efectiva frente al miedo
+- debe ser usada conjuntamente con el resto de valores
+- a veces significa actuar, a veces ser paciente
+                </script>
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+## respeto
+
+>&ldquo;si los miembros del equipo no se preocupan del resto y de lo que están haciendo, XP no funcionará&rdquo;
+
+yo soy importante, y tú también
+
+
+                </script>
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+                    # ¿otros? 
+
+                </script>
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+## principios
+
+- llenan el vacío entre valores y prácticas
+- los principios son directrices específicas para la vida
+- no son tan abstractos como los valores
+
+
+                </script>
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+## humanidad
+¿qué necesitamos para ser buenos programadores?
+
+- seguridad básica
+- realización
+- sentimiento de pertenencia
+- crecimiento
+- intimidad
+
+
+                </script>
+                </section>
+
+ <section data-markdown data-background="./img/peligro.png" data-background-size="800px">
+                <script type="text/template">
+## economía
+
+un euro hoy vale más que un euro mañana: el desarrollo de software aporta más valor cuanto antes produzca beneficio
+
+valor de las opciones: mi software vale más si puedo usarlo para otros fines distintos de su propósito (!)
+
+
+                </script>
+                </section>
+<section>
+<section data-markdown data-background="img/important.jpg">
+                <script type="text/template">
+## beneficio mutuo
+
+#### toda actividad debería beneficiar a todos los implicados
+
+comunicación con el futuro:
+
+- pruebas automatizadas que mejoran diseño e implementación **hoy**
+- refactorización para eliminar complejidad adicional
+- elección coherente de nomenclatura
+
+
+                </script>
+                </section>
+<section data-markdown data-background="img/important.jpg">
+                <script type="text/template">
+>si queremos la confianza del cliente y de nuestros compañeros, tenemos que resolver más problemas de los que generamos
+
+
+                </script>
+                </section>
+ </section>
+<section data-markdown data-background="./img/peligro.png" data-background-size="800px">
+                <script type="text/template">
+## auto-semejanza
+
+intentemos copiar la estructura de una solución en un contexto nuevo (!)
+
+
+                </script>
+                </section>
+<section>
+<section data-markdown>
+                <script type="text/template">
+## mejora
+
+#### no existe el proceso perfecto<!-- .element: class="fragment" data-fragment-index="1" -->
+
+pero sí podemos perfeccionar los procesos<!-- .element: class="fragment" data-fragment-index="2" -->
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+###hoy: una solución justa<!-- .element: class="fragment" data-fragment-index="1" -->
+
+###mañana: una solución mejor<!-- .element: class="fragment" data-fragment-index="2" -->
+
+mejorar el diseño y eliminar lo sobrante iterativamente<!-- .element: class="fragment" data-fragment-index="2" -->
+
+###pero **nunca** una solución perfecta
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+                </script>
+                </section>
+</section>
+<section data-markdown>
+                <script type="text/template">
+## diversidad
+
+los equipos necesitan variedad de perfiles, habilidades y actitudes...<!-- .element: class="fragment" data-fragment-index="1" -->
+
+...lo que conlleva **conflicto** (varias formas de resolver un problema)
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+###un conflicto debe enfocarse como una oportunidad y no como un problema<!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+                </script>
+                </section>
+<section>
+<section data-markdown>
+                <script type="text/template">
+## reflexión
+
+los buenos equipos no sólo hacen su trabajo;<!-- .element: class="fragment" data-fragment-index="1" -->
+
+piensan **cómo** lo están haciendo
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+piensan **por qué** lo están haciendo
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+no esconden sus errores, sino que los exponen y aprenden de ellos<!-- .element: class="fragment" data-fragment-index="4" -->
+
+                </script>
+                </section>
+<section data-markdown data-background="./img/peligro.png" data-background-size="800px">
+                <script type="text/template">
+## cuidado...
+
+el desarrollo de software tiene una larga tradición de gente tan ocupada pensando sobre desarrollo de software que no tiene tiempo de desarrollar software
+
+
+                </script>
+                </section>
+
+</section>
+<section data-markdown>
+                <script type="text/template">
+## flujo
+
+>&ldquo;entregar un flujo continuo de software valioso mediante la participación en todas las actividades de desarrollo de forma simultánea&rdquo;
+
+- evitar el "Big Bang"
+<!-- .element: class="fragment" data-fragment-index="1" -->
+- integrar y entregar con frecuencia en pequeñas cantidades
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## oportunidad
+
+para alcanzar la excelencia, los problemas han de transformarse en **oportunidades para el aprendizaje y mejora**, no sólo en supervivencia
+
+                </script>
+                </section>
+
+<section data-markdown data-background="./img/yoda.jpg">
+                <script type="text/template">
+## redundancia
+
+####los defectos corroen la confianza, y la confianza es la gran eliminadora de todo lo que sobra
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+En XP, los defectos se abordan con prácticas que a veces son redundantes
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+**ojo**: redundancia en su justa medida
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## fracaso
+
+####probemos, probemos, probemos
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+el fracaso no es una pérdida de tiempo si produce conocimiento
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+si no se sabe qué hacer, arriesgarse al fracaso puede ser el camino más corto para el éxito
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+                </script>
+                </section>
+<section>
+<section data-markdown>
+                <script type="text/template">
+## calidad
+
+####los proyectos no se terminan antes a costa de sacrificar la calidad, más bien al contrario.
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+en cambio:
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+- entregas más rápidas
+- mayor productividad
+- mayor efectividad
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+además de tratarse de un factor económico, las personas necesitan poder enorgullecerse de algo
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![Control de proyecto](./img/control.jpg)
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+tiempo y coste suelen estar fijos...
+
+
+XP elige el **alcance** como medio principal de planificación, seguimiento y gobernanza
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+como el alcance nunca se conoce con total precisión, parece una buena elección
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+                </script>
+                </section>
+<section data-markdown data-background="./img/peligro.png" data-background-size="800px">
+                <script type="text/template">
+## cuidado...
+
+la preocupación por la calidad **no es una excusa para la inacción**
+
+si se desconoce una forma limpia de llevar a cabo un trabajo, hagamóslo lo mejor que podamos
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+si la mejor forma de llevarlo a cabo lleva mucho tiempo, hagámoslo en el tiempo disponible de la mejor forma posible y luego **evolucionémoslo**
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+                </script>
+                </section>
+ </section>
+ </section>
+<section data-markdown>
+                <script type="text/template">
+## pequeños pasos
+
+el *overhead* introducido desarrollando en pasos pequeños es menor que el derivado de recuperarse de una gran integración fallida
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+las personas digieren mejor pequeños cambios
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+####ejemplo: ¡implantar esta metodología!
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+                </script>
+                </section>
+<section>
+<section data-markdown >
+                <script type="text/template">
+## responsabilidad aceptada
+
+####la responsabilidad no se asigna; se acepta
+
+llevado a la práctica: 
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+- quien hace el trabajo también lo estima
+- quien implementa, también diseña y pruebas
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+                </script>
+                </section>
+<section data-markdown data-background="./img/peligro.png" data-background-size="800px">
+                <script type="text/template">
+### y con la responsabilidad viene la autoridad
+
+si un experto en el proceso es capaz de decirme cómo he de trabajar pero no de participar en dicho trabajo o sus consecuencias, autoridad y responsabilidad dejan de estar alineadas.
+                </script>
+                </section>
+</section>
+ <section data-markdown>
+                <script type="text/template">
+## prácticas
+
+- la evidencia de los valores
+- son claras
+- son concretas
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## sentarse juntos
+
+desarrollar en un espacio lo suficientemente amplio para todo el equipo
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+mantener espacios para conservar privacidad
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+>si el sentimiento de seguridad de un equipo va atado a sus pequeños espacios propios, quitárselo antes de reemplazarlo por un sentimiento de logro compartido producirá resistencia al cambio
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+                </script>
+                </section>
+<section>
+<section data-markdown>
+                <script type="text/template">
+## equipo completo
+
+incluir en el equipo personas con todas las habilidades y perspectivas necesarias para que el proyecto tenga éxito:
+
+####equipos multifuncionales
+
+                </script>
+                </section>
+<section data-markdown>
+ <script type="text/template">
+## ¿y de qué tamaño?
+
+Dos límites:
+
+- 12: interacción cómoda en el día a día
+- 150: con más personas, no se reconocen las caras
+
+<small>Fuente: The Tipping Point, Malcolm Gladwell</small>
+ </script>
+</section>
+<section data-markdown>
+ <script type="text/template">
+### ¿y si asigno a una misma persona a varios grupos?
+
+Un alto porcentaje del tiempo disponible se pierde en **cambio de contexto**
+
+Se pierde la sensacion de pertenencia
+
+ </script>
+</section>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## espacio de trabajo informativo
+
+conseguir que un observador con interés pueda hacerse una idea del estado de los proyectos en 15 segundos:
+
+pizarras, gráficas, indicadores, paredes... todo **visible**
+                </script>
+                </section>
+
+                <section>
+
+                <section data-id="15">
+                <div>
+
+                    <a href="http://www.cantabria.es"><img alt="Logotipo DGOT"  src="./img/informatica500.png" style="max-width: none; max-height: none; color: rgb(255, 153, 0);  vertical-align:middle; " /> </a>
+                    <p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a href="https://github.com/icane/desarrollo-agil-sw">Acceso al repositorio del curso</a></span></p>
+
+                    <p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a href="http://about.me/predicador37">Miguel Expósito Martín</a></span></p>
+
+
+                </div>	
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+                { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
