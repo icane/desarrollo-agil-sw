@@ -40,12 +40,10 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                <section>
-                <h1><span style="font-weight:bold;font-size:100px">Desarrollo</span> <span style="font-weight:bold;font-size:130px">ágil</span></h1>
-
-                <h1><span style="font-weight:bold;font-size:80px">de</span> <span style="color: red;font-weight:bold;font-size:120px">software</span></h1>
-
-
+                <section data-markdown>
+#scrum
+![Scrum](./img/scrum.png)
+<small>fuente: [Wikipedia](http://en.wikipedia.org/wiki/Scrum_%28software_development%29)</small>
                 </section>
                 <section>
                 <section data-markdown>
@@ -187,6 +185,62 @@ Nº Canales Comunicación = n * (n-1) / 2
 
                 </script>
                 </section>
+<section data-markdown>
+                <script type="text/template">
+## especialistas
+
+- su contribución es indispensable, pero no se mantendrá lo suficientemente ocupado
+- tratarlo como proveedor externo lo convertiría en cuello de botella
+
+**mejor solución: eliminar la dependencia del especialista**
+
+- formar a otros miembros del equipo
+- que el especialista se especialice en otras cosas
+
+>&ldquo;La especialización es para insectos&rdquo;
+
+<small>fuente: [Agile Management](http://www.amazon.es/Agile-Management-Leadership-Environment/dp/3642289088), Ángel Medinilla</small>
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## ¿y el soporte?
+
+###equipos de soporte
+- problemas de motivación
+- menor aprendizaje (sólo aprenden de lo que se rompe)
+- falta de comunicación con equipos de desarrollo puede llevar a repetir los mismos errores
+- problemas de calidad: equipos de desarrollo saben que tienen respaldo
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## ¿y el soporte?
+
+###equipos de desarrollo
+- soportan su propio código: aprenden de sus errores
+- son más lentos
+
+alternativa: dedicar un porcentaje de tiempo planificado a soporte
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## ¿y el soporte?
+
+###equipos de despliegue, sistemas...
+- soportan al resto de equipos en algún aspecto técnico concreto del proceso de desarrollo
+- podrían llevar al anti-patrón organizativo ágil típico:
+
+**organización basada en departamentos de silos de conocimiento**
+
+                </script>
+                </section>
+
  </section>
 <section>
                 <section data-markdown>
@@ -198,6 +252,7 @@ es necesario que alguien se asegure de que el proceso sea efectivo
 
 - facilita las reuniones
 - ayuda al equipo a descubrir qué se interpone en su camino
+- ayuda a entender scrum
 - se pregunta ¿cómo podemos hacerlo mejor?
 
 >no hay gente mala, hay malos procesos
@@ -209,16 +264,28 @@ es necesario que alguien se asegure de que el proceso sea efectivo
 el cliente también forma parte del equipo
 
 - participa en todas las reuniones
-- define la funcionalidad
-- asigna prioridades
+- define qué va y qué no va (funcionalidad) y en qué orden (prioridades)
 - señala qué aporta valor
+- decide las tareas a realizar en el siguiente sprint
 
 ###¿quién es el cliente en nuestra organización?
 
                 </script>
                 </section>
-                </section>
+ <section data-markdown>
+                <script type="text/template">
+## product owner
+###características necesarias:
 
+- conocer el dominio y entender el proceso de negocio (qué se puede hacer y qué no)
+- tener autoridad para tomar decisiones
+- estar disponible para el equipo a diario
+- ser responsable del valor entregado
+
+muchas cosas... **puede haber un equipo de pos**
+                </script>
+                </section>
+                </section>
                 <section>
                 <section data-markdown>
                 <script type="text/template">
@@ -255,7 +322,67 @@ práctica copiada del MIT Media Lab en los 90:
                 </section>
 
                 </section>
-<section>
+		<section>
+                <section data-markdown>
+                <script type="text/template">
+## product backlog
+
+lista ordenada de ideas para el producto realizada por distintos parcitipantes
+
+- típicamente comienza siendo vago y pequeño y acaba siendo definido y grande
+- sus tareas deben refinarse
+
+####debe contener todo aquello que pudiera ser incluída en el producto
+
+
+
+
+
+                </script>
+                </section>
+  <section data-markdown>
+                <script type="text/template">
+## product backlog
+####ordenar maximizando el valor entregado de las características:
+
+- tienen el mayor impacto de negocio
+- son más importantes para el cliente
+- pueden producir el mayor beneficio
+- son las más fáciles de implementar
+
+>&ldquo;el 80% del valor está en el 20% de las características&rdquo;
+
+<small>fuente: [Scrum: the art of doing twice the work in half the time](http://www.amazon.es/Scrum-Doing-Twice-Work-Half/dp/038534645X), Jeff Sutherland (2014)</small>
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## sprint backlog
+lista de tareas del product backlog refinadas
+
+**a desarrollar en la próxima iteración**
+
+determina el siguiente incremento de producto
+                </script>
+	</section>
+ <section data-markdown>
+                <script type="text/template">
+## incremento de producto
+###algo que funciona
+
+- que tenga suficiente calidad
+- que sea aceptable para el cliente
+- que esté **terminado**:
+
+funcional, documentado y con sus tests funcionando
+
+                </script>
+                </section>
+
+                </section>
+
+
+		<section>
                 <section data-markdown>
                 <script type="text/template">
 ## la stand-up diaria
@@ -319,125 +446,170 @@ no lo convirtamos en un *reporting* individual...
 
                 </script>
                 </section>
-  </section>
+	</section>
+	<section>
                 <section data-markdown>
                 <script type="text/template">
-# planificación del sprint
-preparar el backlog: la pila de tareas
+## planificación del sprint
+preparar el backlog: la pila de tareas que se va a vaciar
 
-seleccionar, estimar,  priorizar y comprometer
+**seleccionar, entender, estimar, refinar,  priorizar y comprometer**
 
-                </script>
-                </section>
-                <section data-markdown>
-                <script type="text/template">
-## principios
+en ciclos: todo está en movimiento
 
-- llenan el vacío entre valores y prácticas
-- los principios son directrices específicas para la vida
-- no son tan abstractos como los valores
-
+no más de 2 horas
 
                 </script>
                 </section>
                 <section data-markdown>
                 <script type="text/template">
-## humanidad
-¿qué necesitamos para ser buenos programadores?
+## revisión del sprint
 
-- seguridad básica
-- realización
-- sentimiento de pertenencia
-- crecimiento
-- intimidad
+revisión del incremento de producto
 
+no más de 1 hora
+
+- ¿hace lo que debe hacer?
+- ¿tiene la calidad suficiente?
+- ¿cumple con los criterios de aceptación?
 
                 </script>
                 </section>
-
- <section data-markdown data-background="./img/peligro.png" data-background-size="800px">
+                <section data-markdown>
                 <script type="text/template">
-## economía
+## retrospectiva del sprint
+puede hacerse junto con la revisión del sprint
 
-un euro hoy vale más que un euro mañana: el desarrollo de software aporta más valor cuanto antes produzca beneficio
-
-valor de las opciones: mi software vale más si puedo usarlo para otros fines distintos de su propósito (!)
-
+- ¿cómo ha ido el proceso? relaciones personales, herramientas..
+- identificación de posibles mejoras
+- propuestas para el siguiente sprint
 
                 </script>
                 </section>
+	</section>
 <section>
-<section data-markdown data-background="img/important.jpg">
+ <section data-markdown >
                 <script type="text/template">
-## beneficio mutuo
+## hablemos de desperdicio
+¿todo lo que hacemos es aprovechable?
 
-#### toda actividad debería beneficiar a todos los implicados
+¿alguna vez hemos trabajado para nada?
 
-comunicación con el futuro:
-
-- pruebas automatizadas que mejoran diseño e implementación **hoy**
-- refactorización para eliminar complejidad adicional
-- elección coherente de nomenclatura
-
-
+¿qué porcentaje de nuestro tiempo de trabajo es realmente productivo?
                 </script>
                 </section>
 <section data-markdown data-background="img/important.jpg">
                 <script type="text/template">
->si queremos la confianza del cliente y de nuestros compañeros, tenemos que resolver más problemas de los que generamos
+## una cosa a la vez
+no somos multitarea... ejemplo: conducir y usar el móvil
 
+####¿entonces, por qué lo hacemos?
+
+>porque nos es difícil inhibir el impulso de realizar otra actividad
+
+####hagamos un ejercicio
+
+<small>fuente: [if you think you're good at multitasking, you probably aren't](http://www.npr.org/sections/health-shots/2013/01/24/170160105/if-you-think-youre-good-at-multitasking-you-probably-arent), David Sanbonmatsu (2013)</small>
+
+
+                </script>
+                </section>
+<section data-markdown >
+                <script type="text/template">
+### muy bonito, pero yo tengo que llevar 5 proyectos simultáneamente
+
+|proyectos simultáneos|tiempo disponible por proyecto|tiempo desperdiciado|
+|---------------------|------------------------------|--------------------|
+|1|100%|0%|
+|2|40%|20%|
+|3|20%|40%|
+|4|10%|60%|
+|5|5%|75%|
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+<small>fuente: [Quality Software Management](http://www.amazon.com/Quality-Software-Management-Systems-Thinking/dp/0932633722), Gerald M. Weinberg (1991)</small>
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+                </script>
+                </section>
+
+<section data-markdown data-background="./img/important.png" data-background-size="800px">
+                <script type="text/template">
+esto tiene un nombre: [dual-task interference](http://www.pashler.com/Articles/Pashler_PB1994.pdf)
+
+###debemos ser conscientes del coste del cambio de contexto y minimizarlo junto con las interrupciones
+
+técnicas: pomodoro, **tiempo de soledad**
+
+<small>fuente: [Rework](http://37signals.com/rework/): *interruption is the enemy of productivity*, David Heinemeier Hanson, Jason Fried</small>
+                </script>
+                </section>
+
+<section data-markdown >
+                <script type="text/template">
+![Priorización de proyectos](./img/priorizar_proyectos.png)
+<small>fuente: [Scrum: the art of doing twice the work in half the time](http://www.amazon.es/Scrum-Doing-Twice-Work-Half/dp/038534645X), Jeff Sutherland (2014)</small>
 
                 </script>
                 </section>
  </section>
+<section>
 <section data-markdown data-background="./img/peligro.png" data-background-size="800px">
                 <script type="text/template">
-## auto-semejanza
+## otras prácticas
+¿cuándo debemos corregir un bug?
 
-intentemos copiar la estructura de una solución en un contexto nuevo (!)
+ejemplo: bugs en Palm (PDA)
 
+- al crearlo: una hora
+- tres semanas después: 24 horas
 
-                </script>
-                </section>
-<section>
-<section data-markdown>
-                <script type="text/template">
-## mejora
-
-#### no existe el proceso perfecto<!-- .element: class="fragment" data-fragment-index="1" -->
-
-pero sí podemos perfeccionar los procesos<!-- .element: class="fragment" data-fragment-index="2" -->
-
+**hagámoslo bien a la primera**
 
                 </script>
                 </section>
 <section data-markdown>
                 <script type="text/template">
-###hoy: una solución justa<!-- .element: class="fragment" data-fragment-index="1" -->
+##otras prácticas
+###trabajar más hace producir menos
 
-###mañana: una solución mejor<!-- .element: class="fragment" data-fragment-index="2" -->
+más horas -> fatiga -> errores -> corrección de errores
 
-mejorar el diseño y eliminar lo sobrante iterativamente<!-- .element: class="fragment" data-fragment-index="2" -->
+y otras: testarudez, falta de creatividad, menos moral, mayor irritabilidad
 
-###pero **nunca** una solución perfecta
+###¡hay que dormir!
 
-<!-- .element: class="fragment" data-fragment-index="3" -->
+
+<small>[Rework](http://37signals.com/rework/): *go to sleep*, David Heinemeier Hanson, Jason Fried</small>
+<small>[how naps affect your brain and why you should have one every day](https://blog.bufferapp.com/how-naps-affect-your-brain-and-why-you-should-have-one-every-day), Belle Beth Cooper (buffer social)</small>
 
                 </script>
                 </section>
+<section data-markdown data-background="./img/maximus.jpg">
+                <script type="text/template">
+##otras prácticas
+###no seamos héroes
+
+los esfuerzos heróicos son fracasos de planificación
+
+###lo acabo por mis %$%"·$%&
+
+descartar una tarea no implica fracaso
+
+<small>[Rework](http://37signals.com/rework/): *don't be a hero*, David Heinemeier Hanson, Jason Fried</small>
+                </script>
+                </section>
+
 </section>
 <section data-markdown>
                 <script type="text/template">
-## diversidad
+## métricas
+###gráfico burndown
+![gráfico burndown](./img/burndown.png)
 
-los equipos necesitan variedad de perfiles, habilidades y actitudes...<!-- .element: class="fragment" data-fragment-index="1" -->
-
-...lo que conlleva **conflicto** (varias formas de resolver un problema)
-
-<!-- .element: class="fragment" data-fragment-index="2" -->
-
-###un conflicto debe enfocarse como una oportunidad y no como un problema<!-- .element: class="fragment" data-fragment-index="3" -->
-
+<small>fuente: [Wikipedia](http://en.wikipedia.org/wiki/Burn_down_chart)</small>
 
                 </script>
                 </section>
