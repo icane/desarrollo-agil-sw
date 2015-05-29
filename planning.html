@@ -1,0 +1,272 @@
+ <!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Desarrollo ágil de Software - CEARC 2015</title>
+
+        <meta name="description" content="Curso de Desarrollo Ágil de Software para el Centro de Estudios de la Administración Pública Regional de Cantabria">
+        <meta name="author" content="Miguel Expósito Martín">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section data-markdown>
+
+                </section>
+                <section>
+                <section data-markdown>
+                <script type="text/template">
+## ¿por qué planificar?
+porque necesitamos:
+
+- asegurarnos de que siempre estamos trabajando en lo más importante que tenemos que hacer
+- coordinarnos con otras personas
+- entender las consecuencias de que ocurran eventos inesperados
+                </script>
+                </section>
+                <section data-markdown data-background="./img/enoughtime.jpg">
+                <script type="text/template">
+## no tengo tiempo
+
+###mejor dicho: tengo mucho que hacer
+
+y entonces:
+
+- puedo priorizar y no hacer algunas cosas
+- puedo reducir el alcance de algunas de las cosas que tengo que hacer
+- puedo pedir a otros que hagan algunas cosas
+
+<small>referencia: [Rework](http://37signals.com/rework/): *no time is no excuse*, David Heinemeier Hanson, Jason Fried</small>
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## cono de incertidumbre
+
+![cono de incertidumbre](./img/cone.jpg)
+                </script>
+                </section>
+
+
+                </section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+## estimación
+
+####nuestras estimaciones son horribles
+
+>&ldquo;creemos que podemos adivinar cuánto tiempo nos va a llevar algo, pero lo cierto es que no tenemos ni idea. No somos capaces de predecir qué va a pasar&rdquo;
+
+>&ldquo;si no podemos ser precisos estimando unas pocas horas, ¿cómo pretendemos estimar con precisión la duración de un proyecto software?&rdquo;
+
+<small>fuente: [Rework](http://37signals.com/rework/): *your estimates suck*, David Heinemeier Hanson, Jason Fried</small>
+                </script>
+                </section>
+                <section data-markdown data-markdown>
+                <script type="text/template">
+## ¿y cómo lo hacemos?
+- **dividiendo** las cosas grandes en cosas más pequeñas
+- **refinando** el plan a lo largo del proyecto
+- planificando sólo con el **detalle necesario** para entregar el siguiente incremento de producto y estimando el resto en trozos más grandes
+- haciendo primero las cosas más importantes
+
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## el tamaño importa...
+
+### relativamente
+
+![estimar por comparación](./img/relative.jpg)
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## secuencia de fibonacci
+
+![secuencia de fibonacci](./img/fibonacci.png)
+
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## estimación relativa
+los números de la secuencia de fibonacci están lo suficientemente separados como para distinguir diferencias.
+
+no es lo mismo la diferencia entre 5 y 6 que la diferencia entre 8 y 13...
+
+si nuestras estimaciones se hacen en grupo, serán mejores
+                </script>
+     </section>
+
+ </section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+## ¿cómo estimar?
+
+- sabemos que somos buenos comparando cosas
+- tenemos una escala adecuada
+- sabemos que estimando en grupo seremos más precisos
+
+necesitamos **evitar sesgos** en el grupo:
+
+- efecto carro
+- efecto halo
+
+###el método delphi
+
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## método delphi
+- admite un amplio conjunto de opiniones
+- elimina sesgos
+- utiliza opiniones de expertos y anónimas
+
+pero...
+
+####lleva mucho tiempo
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## planning poker
+
+- a cada miembro del equipo se le da un mazo de cartas con la secuencia de fibonacci
+- se toma la historia a estimar y se expone en el grupo
+- cada uno coge la carta que cree que representa el esfuerzo y la pone boca abajo sobre la mesa
+- se da la vuelta a todas las cartas a la vez
+- si se está a menos de dos cartas, se hace la media
+- si se está de tres cartas, la más alta y la más baja discuten
+- se vuelve a estimar
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## consejos prácticos
+
+- equiparar el punto de esfuerzo a la hora de trabajo
+- utilizar la experiencia pasada
+- un par de malas estimaciones no implican un desastre
+- no pasemos más de 2 horas estimando (ni en cualquier otra reunión)
+- conocer la velocidad del equipo: puntos realizados / puntos planificados (se puede expresar en horas por punto)
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## ejercicio
+
+- **como** usuario **quiero** ser capaz de identificarme en el sistema **para** acceder a mi información personal
+- **como** gestor **quiero** poder importar automáticamente asientos de contabilidad desde el SIC del Gobierno de Cantabria **para** poder enviárselos al MINHAP desde mi aplicación **y** así cumplir con la normativa vigente
+- **como** programador **quiero** que cada vez que haga commit de un archivo XML al sistema de control de versiones este se valide previamente **para** evitar introducir y propagar errores en el servidor
+                </script>
+                </section>
+
+                </section>
+                <section>
+                <section data-markdown>
+                <script type="text/template">
+## estimar un proyecto
+
+ CT = SUMA(Fi) \* Vd \* C + ME
+
+en donde:
+
+- CT es el coste total en €.
+- Fi es el número de puntos de esfuerzo estimados por cada característica, historia o requisito (y *SUMA()* es un sumatorio).
+- Vd es la velocidad de desarrollo del adjudicatario en horas / punto.
+- C es el coste medio de la hora de trabajo del adjudicatario en € / hora.
+- ME es el margen de incertidumbre.
+
+####y refinar
+                </script>
+                </section>
+</section>
+
+
+                <section>
+
+                <section data-id="15">
+                <div>
+
+                    <a href="http://www.cantabria.es"><img alt="Logotipo DGOT"  src="./img/informatica500.png" style="max-width: none; max-height: none; color: rgb(255, 153, 0);  vertical-align:middle; " /> </a>
+                    <p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a href="https://github.com/icane/desarrollo-agil-sw">Acceso al repositorio del curso</a></span></p>
+
+                    <p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a href="http://about.me/predicador37">Miguel Expósito Martín</a></span></p>
+
+
+                </div>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+		slideNumber: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+                { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
