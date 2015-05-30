@@ -41,7 +41,7 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section data-markdown>
-
+#planificación
                 </section>
                 <section>
                 <section data-markdown>
@@ -52,6 +52,15 @@ porque necesitamos:
 - asegurarnos de que siempre estamos trabajando en lo más importante que tenemos que hacer
 - coordinarnos con otras personas
 - entender las consecuencias de que ocurran eventos inesperados
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## errores típicos
+- calendario optimista
+- expectativas no realistas, debido a especificaciones ambiguas
+- confusión de estimaciones con objetivos : *tiene que estar en tres meses*
+- omisión de estimación de tareas necesarias: pruebas, documentación, gestión de la configuración...
                 </script>
                 </section>
                 <section data-markdown data-background="./img/enoughtime.jpg">
@@ -189,6 +198,7 @@ pero...
 
                 </script>
                 </section>
+
 <section data-markdown>
                 <script type="text/template">
 ## ejercicio
@@ -205,17 +215,48 @@ pero...
                 <script type="text/template">
 ## estimar un proyecto
 
- CT = SUMA(Fi) \* Vd \* C + ME
+      CT = SUMA(Fi) * Vd * C + ME
 
 en donde:
 
 - CT es el coste total en €.
-- Fi es el número de puntos de esfuerzo estimados por cada característica, historia o requisito (y *SUMA()* es un sumatorio).
+- Fi es el número de puntos de esfuerzo estimados por cada característica, historia o requisito (y `SUMA()` es un sumatorio).
 - Vd es la velocidad de desarrollo del adjudicatario en horas / punto.
 - C es el coste medio de la hora de trabajo del adjudicatario en € / hora.
 - ME es el margen de incertidumbre.
 
 ####y refinar
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## número de iteraciones
+####ejemplo
+
+- proyecto de 250 puntos historia
+- jornadas de 6 horas
+- semanas de 5 días
+- iteraciones de dos semanas
+- velocidad de desarrollo de 1.5 horas / punto
+- puntos por sprint: 6 * 5 * 2 / Vd = 40 
+
+Nº de iteraciones: 250 / 40 = 6,25 **(7)**
+
+**Duración: 14 semanas**
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## duración de una iteración
+####respuesta rápida: de 2 a 4 semanas
+
+depende de:
+
+- frecuencia de demostración
+- frecuencia de reajuste de objetivos
+- tiempo que tarda una idea en transformarse en software
+
+####a menor tiempo de iteración, mayor sofisticación debe tener el equipo de desarrollo
                 </script>
                 </section>
 </section>
