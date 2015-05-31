@@ -59,12 +59,33 @@
                 <script type="text/template">
 ## características
 ###desarrollo ágil
-- enfoque en la **funcionalidad** y no en el bajo nivel
-- arquitectura basada en **plugins**
-- **convención** sobre configuración
-- reutilización de código *legacy* en java
-- scaffolding
-- [groovy!](http://www.groovy-lang.org/)
+enfoque en la **funcionalidad** y no en el bajo nivel
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+arquitectura basada en **plugins**
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+**convención** sobre configuración (sin XML)
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+reutilización de código *legacy* en java
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+scaffolding
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+entorno rápido de usar (desarrollo, pruebas, producción)
+
+<!-- .element: class="fragment" data-fragment-index="6" -->
+
+[groovy!](http://www.groovy-lang.org/)
+
+<!-- .element: class="fragment" data-fragment-index="7" -->
 
 
                 </script>
@@ -74,11 +95,25 @@
                 <script type="text/template">
 ## características
 ###calidad
-- soporte para *test-first programming*: [geb](http://www.gebish.org/testing) y [spock](https://code.google.com/p/spock/)
-- rápida ejecución de tests y aplicación: contenedor empotrado
-- despliegues de código en caliente
-- menos código a revisar y plugins: [codenarc](http://codenarc.sourceforge.net/)
-- [patrones de diseño](http://www.groovy-lang.org/design-patterns.html) para groovy
+soporte para *test-first programming*: [geb](http://www.gebish.org/testing) y [spock](https://code.google.com/p/spock/)
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+rápida ejecución de tests y aplicación: contenedor empotrado
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+despliegues de código en caliente
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+menos código a revisar y plugins: [codenarc](http://codenarc.sourceforge.net/)
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+[patrones de diseño](http://www.groovy-lang.org/design-patterns.html) para groovy
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
  </script>
 </section>
 <section data-markdown>
@@ -104,28 +139,74 @@
 ## groovy
 
 un lenguaje dinámico rico en características para la plataforma java
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 - completamente orientado a objetos
+<!-- .element: class="fragment" data-fragment-index="2" -->
 - tipado estático o dinámico
+<!-- .element: class="fragment" data-fragment-index="3" -->
 - duck typing
+<!-- .element: class="fragment" data-fragment-index="4" -->
+- metaprogramación
+<!-- .element: class="fragment" data-fragment-index="5" -->
 - closures, beans, gstrings...
-- excelente lenguaje de *scripting*
+<!-- .element: class="fragment" data-fragment-index="6" -->
+- excelente lenguaje de scripting
+<!-- .element: class="fragment" data-fragment-index="7" -->
 
 ### java con esteroides
+<!-- .element: class="fragment" data-fragment-index="8" -->
 
 pero... [más lento](http://java.dzone.com/articles/java-7-vs-groovy-21)
 
+<!-- .element: class="fragment" data-fragment-index="8" -->
                 </script>
                 </section>
                 <section data-markdown >
                 <script type="text/template">
 ## groovy
 
-- imports por defecto (`java.lang.*`, `java.util.*`, `java.net.*`)
-- elementos opcionales: punto y coma, tipos de variables, declaración `return`
-- métodos y clases públicos por defecto, miembros privados
-- closures: funciones anónimas que pueden aceptar parámetros, devolver valores, ser asignadas a variables, ser pasadas como argumentos...
-- métodos adicionales para el trabajo con listas
+imports por defecto (`java.lang.*`, `java.util.*`, `java.net.*`)
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+elementos opcionales: punto y coma, tipos de variables, declaración `return`
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+métodos y clases públicos por defecto, miembros privados
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+closures: funciones anónimas que pueden aceptar parámetros, devolver valores, ser asignadas a variables, ser pasadas como argumentos...
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+métodos adicionales para el trabajo con listas
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+operador null safe: `?.`
+
+<!-- .element: class="fragment" data-fragment-index="6" -->
+                </script>
+                </section>
+ <section data-markdown >
+                <script type="text/template">
+## groovy vs java
+
+java
+
+      for (String it : new String[] {"Pepe", "Paco", "Ana"}) {
+        if (it.length() <= 4) {
+          System.out.println(it);
+        }
+      }
+
+groovy
+
+      ["Pepe", "Paco", "Ana"].findAll{it.size() <= 4}.each{println it}
+
                 </script>
                 </section>
  </section>
@@ -137,12 +218,15 @@ pero... [más lento](http://java.dzone.com/articles/java-7-vs-groovy-21)
 
 ###hibernate con esteroides
 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
 - diseño orientado a dominio
 - asociaciones: `hasOne, hasMany...`
 - inyección automática de finders
 - consultas avanzadas con HQL, criteria...
 - basado en *pogos*
 
+<!-- .element: class="fragment" data-fragment-index="2" -->
                 </script>
                 </section>
  <section data-markdown>
@@ -172,17 +256,27 @@ muy útil para demostraciones y aprendizaje
 ## gsp y recursos estáticos
 *groovy server pages*: jsp con esteroides
 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
       <g:each in="${[1,2,3]}" var="num">
         <p>Number ${num}</p>
       </g:each>
 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
 **más flexible y sencillo**
 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
 *asset pipeline plugin*: procesado de CSS y JS
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 - procesado al vuelo
 - fácil depuración
 - compresión, minificación, cache digests
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
                 </script>
                 </section>
                 </section>
@@ -190,7 +284,7 @@ muy útil para demostraciones y aprendizaje
                 <section data-markdown>
                 <script type="text/template">
 ## spock
-[testing bonito](http://webconsole.spockframework.org/edit/9001) y altamente expresivo
+[testing elegante](http://webconsole.spockframework.org/edit/9001) y altamente expresivo
 
       def "puede añadir un elemento"() {
 
@@ -211,7 +305,7 @@ muy útil para demostraciones y aprendizaje
                 <section data-markdown>
                 <script type="text/template">
 ## spock
-tests orientados al dato
+tests orientados a los datos
 
       def "máximo de dos números"() {
 
@@ -232,8 +326,29 @@ tests orientados al dato
 <section data-markdown>
                 <script type="text/template">
 #ruby on rails
+![ruby on rails](./img/rubyrails.png)
                 </script>
                 </section>
+<section data-markdown>
+                <script type="text/template">
+#ruby on rails
+un framework ágil de desarrollo web abierto y multiplataforma
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+#características
+- metaprogramación: programas que escriben programas (no generación de código)
+- registro activo: acceso a datos basado en el patrón de Fowler
+- convención sobre configuración
+- andamiaje (scaffolding)
+- pruebas integradas
+- entornos de desarrollo, pruebas y producción
+                </script>
+                </section>
+</section>
+
+<section>
 <section data-markdown>
                 <script type="text/template">
 ##ruby

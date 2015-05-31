@@ -1,0 +1,396 @@
+ <!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Desarrollo ágil de Software - CEARC 2015</title>
+
+        <meta name="description" content="Curso de Desarrollo Ágil de Software para el Centro de Estudios de la Administración Pública Regional de Cantabria">
+        <meta name="author" content="Miguel Expósito Martín">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section data-markdown>
+#otras herramientas pragmáticas y conceptos ágiles
+                </section>
+                <section>
+                <section data-markdown>
+                <script type="text/template">
+## microservices
+>&ldquo;un enfoque para desarrollar una única aplicación como una suite de pequeños servicios, cada uno ejecutándose en su propio proceso y comunicándose a través de mecanismos ligeros (generalmente, una API de recursos HTTP)&rdquo;
+
+- se construyen en torno a funcionalidad
+- se despliegan de manera independiente
+- están construidos en distintas tecnologías y utilizan diferentes tecnologías de almacenamiento
+
+<small>fuente: [Fowler](http://martinfowler.com/articles/microservices.html)</small>
+
+                </script>
+                </section>
+ <section data-markdown >
+                <script type="text/template">
+## sistemas monolíticos
+cliente + backend + base de datos
+
+####cualquier cambio en el sistema implica construir y desplegar una nueva versión del backend
+
+- a veces se hace difícil mantener una estructura modular
+- el escalado, de necesitarse, se aplica a todo el sistema y no a la parte que requiere más recursos
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![microservices](./img/microservices.png)
+
+<small>fuente: [Fowler](http://martinfowler.com/articles/microservices.html)</small>
+                </script>
+                </section>
+<section data-markdown>
+ <script type="text/template">
+## servicios como componentes
+
+- componentes: unidad de software independiemente reemplazable y actualizable
+- biblioteca: componentes enlazados en un programa y llamados usando llamadas a funciones en memoria
+- servicios: componentes fuera del proceso que se comunican con mecanismos como peticiones a servicios web o RPC
+
+####utilizar servicios como componentes permite poder desplegarlos de manera independiente
+
+</script>
+</section>
+
+ <section data-markdown>
+                <script type="text/template">
+## organización según el negocio
+equipos multi-funcionales con las habilidades necesarias para el desarrollo, la experiencia del usuario, la gestión del proyecto, las bases de datos...
+
+evitar la [Ley de Conway](http://www.melconway.com/Home/Committees_Paper.html):
+
+>&ldquo;cualquier organización que diseña un sistema (definido de forma amplia) producirá un diseño cuya estructura es una copia de la estructura de comunicación de la organización&rdquo;
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![silos](./img/silos.png)
+
+<small>fuente: [Fowler](http://martinfowler.com/articles/microservices.html)</small>
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![cross functional teams](./img/crossf.png)
+
+<small>fuente: [Fowler](http://martinfowler.com/articles/microservices.html)</small>
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## productos, no proyectos
+**modelo de proyecto**: se entrega el software cuando se considera completo, delegando la responsabilidad al equipo de mantenimiento. El equipo de desarrollo se desmantela.
+
+**modelo de producto**: el equipo de desarrollo asume plena responsabilidad también cuando el software está en producción. Esto les lleva a un contacto diario con el software y sus usuarios.
+
+####el software se convierte en una relación viva
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##comunicación sencilla
+frente a los ESB, que incluyen sofisticados sistemas de enrutado, coreografía, transformación, reglas de negocio, etc...
+
+####microservicios desacoplados y coherentes, usando HTTP
+
+- end-point inteligente
+- "tuberías tontas"
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##gobernanza descentralizada
+para cada problema, su solución: no todo es un clavo y no todo es un martillo
+
+en vez de un catálogo centralizado de estándares en una tecnología única, un catálogo de herramientas útiles para que otros desarrolladores puedan resolver problemas similares
+
+ejemplos: Netflix, Amazon...
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+###gestión de datos descentralizada
+![decentralized data](./img/ddata.png)
+
+<small>fuente: [Fowler](http://martinfowler.com/articles/microservices.html)</small>
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##otras
+- entrega continua, integración continua
+- ejecución automática de tests y despliegue
+- diseño tolerante a fallos
+- diseño evolutivo
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+####¿un servidor para cada microservicio?
+
+no necesariamente...
+
+usar servidores empotrados permite una mayor automatización, despliegues más rápidos y menor esfuerzo de mantenimiento
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##contras
+- impacto en rendimiento debido al overhead HTTP, de red y de serialización
+- heterogeneidad e interacciones complejas
+- gestión de dependencias
+- necesidad de mantener un registro de servicios
+
+                </script>
+                </section>
+                </section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+## devops
+>participación conjunta de equipos de operaciones (sistemas) y desarrollo en todo el ciclo de vida del servicio, desde su concepción y diseño, pasando por el proceso de desarrollo y hasta el mantenimiento del mismo
+
+comparten los **mismos valores** que el manifiesto ágil
+
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## el horror de sistemas
+>esta aplicación no se desplegará en nuestra infraestructura porque... {está obsoleta, no tenemos capacidad suficiente, no damos soporte a esa versión}
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+>la arquitectura de esta aplicación no cumple con nuestro modelo de {red, almacenamiento, seguridad}
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+                </script>
+                </section>
+                <section data-markdown data-markdown>
+                <script type="text/template">
+##principios
+- cultura, simplicidad, automatización, mejora continua
+
+###infrastructure as code
+
+escribir código para gestionar configuración y provisión automática de infraestructura y despliegues
+
+####no se trata sólo de scripts
+
+- control de versiones, testing, patrones de diseño...
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## herramientas
+- las propias del desarrollo ágil: scrum, kanban
+- propias de operaciones: virtualización, cloud
+- de despliegue: jenkins, travis
+- de gestión de configuración: puppet, chef, ansible
+- de uso de contenedores: docker, vagrant, AWS, openstack
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+
+                </script>
+     </section>
+
+ </section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+## edición productiva
+
+
+
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## el poder del texto plano
+
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## planning poker
+
+- a cada miembro del equipo se le da un mazo de cartas con la secuencia de fibonacci
+- se toma la historia a estimar y se expone en el grupo
+- cada uno coge la carta que cree que representa el esfuerzo y la pone boca abajo sobre la mesa
+- se da la vuelta a todas las cartas a la vez
+- si se está a menos de dos cartas, se hace la media
+- si se está de tres cartas, la más alta y la más baja discuten
+- se vuelve a estimar
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## consejos prácticos
+
+- equiparar el punto de esfuerzo a la hora de trabajo
+- utilizar la experiencia pasada
+- un par de malas estimaciones no implican un desastre
+- no pasemos más de 2 horas estimando (ni en cualquier otra reunión)
+- conocer la velocidad del equipo: puntos realizados / puntos planificados (se puede expresar en horas por punto)
+
+                </script>
+                </section>
+
+<section data-markdown>
+                <script type="text/template">
+## ejercicio
+
+- **como** usuario **quiero** ser capaz de identificarme en el sistema **para** acceder a mi información personal
+- **como** gestor **quiero** poder importar automáticamente asientos de contabilidad desde el SIC del Gobierno de Cantabria **para** poder enviárselos al MINHAP desde mi aplicación **y** así cumplir con la normativa vigente
+- **como** programador **quiero** que cada vez que haga commit de un archivo XML al sistema de control de versiones este se valide previamente **para** evitar introducir y propagar errores en el servidor
+                </script>
+                </section>
+
+                </section>
+                <section>
+                <section data-markdown>
+                <script type="text/template">
+## estimar un proyecto
+
+      CT = SUMA(Fi) * Vd * C + ME
+
+en donde:
+
+- CT es el coste total en €.
+- Fi es el número de puntos de esfuerzo estimados por cada característica, historia o requisito (y `SUMA()` es un sumatorio).
+- Vd es la velocidad de desarrollo del adjudicatario en horas / punto.
+- C es el coste medio de la hora de trabajo del adjudicatario en € / hora.
+- ME es el margen de incertidumbre.
+
+####y refinar
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## número de iteraciones
+####ejemplo
+
+- proyecto de 250 puntos historia
+- jornadas de 6 horas
+- semanas de 5 días
+- iteraciones de dos semanas
+- velocidad de desarrollo de 1.5 horas / punto
+- puntos por sprint: 6 * 5 * 2 / Vd = 40 
+
+Nº de iteraciones: 250 / 40 = 6,25 **(7)**
+
+**Duración: 14 semanas**
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## duración de una iteración
+####respuesta rápida: de 2 a 4 semanas
+
+depende de:
+
+- frecuencia de demostración
+- frecuencia de reajuste de objetivos
+- tiempo que tarda una idea en transformarse en software
+
+####a menor tiempo de iteración, mayor sofisticación debe tener el equipo de desarrollo
+                </script>
+                </section>
+</section>
+
+
+                <section>
+
+                <section data-id="15">
+                <div>
+
+                    <a href="http://www.cantabria.es"><img alt="Logotipo DGOT"  src="./img/informatica500.png" style="max-width: none; max-height: none; color: rgb(255, 153, 0);  vertical-align:middle; " /> </a>
+                    <p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a href="https://github.com/icane/desarrollo-agil-sw">Acceso al repositorio del curso</a></span></p>
+
+                    <p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a href="http://about.me/predicador37">Miguel Expósito Martín</a></span></p>
+
+
+                </div>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+		slideNumber: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+                { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
