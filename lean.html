@@ -103,6 +103,36 @@
                 </section>
  <section data-markdown data-markdown>
                 <script type="text/template">
+##¿qué desperdicios se dan en el desarrollo de software?
+                </script>
+                </section>
+<section data-markdown data-markdown>
+                <script type="text/template">
+trabajo realizado parcialmente: complicado de integrar
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+características extra: no se suelen usar
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+reaprendizaje: redescubrimiento de soluciones a problemas que ya resolvimos en su momento
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+"de mano en mano": el conocimiento no se transmite sólo con documentos y diagramas
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+pausas: esperas derivadas de contratación, revisión o aprobación de
+<!-- .element: class="fragment" data-fragment-index="5" --> procesos...
+
+cambio de tarea
+<!-- .element: class="fragment" data-fragment-index="6" -->
+
+defectos
+<!-- .element: class="fragment" data-fragment-index="7" -->
+
+                </script>
+                </section>
+ <section data-markdown data-markdown>
+                <script type="text/template">
 ## técnicas
 pensamiento en A3
 
@@ -151,8 +181,8 @@ el equipo debe ir a **gemba**
  <section data-markdown>
                 <script type="text/template">
 ## gestión de demanda
-al inicio del proceso, estimación con tallas de camisetas
 
+![camisetas](./img/tshirt.jpg)
                 </script>
                 </section>
 <section data-markdown>
@@ -169,11 +199,18 @@ los ciclos cortos hacen que el trabajo entre según se vaya necesitando
 
 <section data-markdown>
                 <script type="text/template">
-## ejercicio
+##resto del proceso
+**kanban** para ejecución y pruebas
 
-- **como** usuario **quiero** ser capaz de identificarme en el sistema **para** acceder a mi información personal
-- **como** gestor **quiero** poder importar automáticamente asientos de contabilidad desde el SIC del Gobierno de Cantabria **para** poder enviárselos al MINHAP desde mi aplicación **y** así cumplir con la normativa vigente
-- **como** programador **quiero** que cada vez que haga commit de un archivo XML al sistema de control de versiones este se valide previamente **para** evitar introducir y propagar errores en el servidor
+incluir al **service desk** en la cadena de valor global, no sólo enfocarse en desarrollo
+
+métricas: indicadores simples frente a cálculos complejos
+
+- la mayor parte de los problemas surgen en las stand-ups: **los defectos se previenen**
+- gráficos burndown
+- otras: lead time, velocidad de desarrollo...
+
+
                 </script>
                 </section>
 
@@ -181,55 +218,233 @@ los ciclos cortos hacen que el trabajo entre según se vaya necesitando
                 <section>
                 <section data-markdown>
                 <script type="text/template">
-## estimar un proyecto
+## kanban
+>un dispositivo de señalización que introduce el flujo de trabajo a lo largo de un proceso a un ritmo manejable
 
-      CT = SUMA(Fi) * Vd * C + ME
+sólo envía trabajo cuando lo ordena el **cliente**
 
-en donde:
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
-- CT es el coste total en €.
-- Fi es el número de puntos de esfuerzo estimados por cada característica, historia o requisito (y `SUMA()` es un sumatorio).
-- Vd es la velocidad de desarrollo del adjudicatario en horas / punto.
-- C es el coste medio de la hora de trabajo del adjudicatario en € / hora.
-- ME es el margen de incertidumbre.
+indica específicamente **qué trabajo** debe hacerse
 
-####y refinar
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+controla la cantidad de **trabajo en progreso**
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+regula las interrupciones
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+orquesta el **ritmo de trabajo**
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
                 </script>
                 </section>
  <section data-markdown>
                 <script type="text/template">
-## número de iteraciones
-####ejemplo
+## principios
+**visualizar**: tablero y tarjetas o postits
 
-- proyecto de 250 puntos historia
-- jornadas de 6 horas
-- semanas de 5 días
-- iteraciones de dos semanas
-- velocidad de desarrollo de 1.5 horas / punto
-- puntos por sprint: 6 * 5 * 2 / Vd = 40 
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
-Nº de iteraciones: 250 / 40 = 6,25 **(7)**
+**limitar trabajo en progreso**: establecer un límite de lo que se puede hacer simultáneamente
 
-**Duración: 14 semanas**
-                </script>
-                </section>
-<section data-markdown>
-                <script type="text/template">
-## duración de una iteración
-####respuesta rápida: de 2 a 4 semanas
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
-depende de:
+gestionar flujo: buscar cuellos de botella
 
-- frecuencia de demostración
-- frecuencia de reajuste de objetivos
-- tiempo que tarda una idea en transformarse en software
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
-####a menor tiempo de iteración, mayor sofisticación debe tener el equipo de desarrollo
+hacer explícitas las políticas del proceso, para poder discutirlas
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+implementar bucles de realimentación, a modo de **retrospectiva**
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+mejorar colaboración y **experimentar**
+
+<!-- .element: class="fragment" data-fragment-index="6" -->
                 </script>
                 </section>
 </section>
+<section>
+ <section data-markdown>
+                <script type="text/template">
+###radiadores de información
+tablero electrónico:
+
+- accesible desde cualquier punto
+- sin pérdida de información
+- cálculo automático de métricas
+
+tablero físico:
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+- más grande
+- lugar natural para reunión
+- más fácil de poner en marcha y cambiar
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+####dejar la decisión al equipo
+<!-- .element: class="fragment" data-fragment-index="3" -->
+ </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##elementos de trabajo
+- postits o tarjetas
+- etiquetas impresas
+
+####¡ojo con cómo despegamos los postits del mazo! 
+
+¿quién es responsable del postit?
+
+- avatares
+- franjas para cada miembro del equipo
+
+####estimar cada postit en puntos historia de manera homogénea
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##work in progress
+representa todo el trabajo en marcha en un instante de tiempo dado
+
+- lo que estoy haciendo
+- lo que está esperando para ser verificado
+- lo que aún no he empezado y está en mi bandeja de entrada
+
+####limitar el WIP implica hacer menos cosas simultáneamente
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##limitar wip
+si es muy bajo: gente ociosa
+si es muy alto: se empiezan muchas tareas que no se acaban
+
+no hay reglas: debe ajustarse en función del equipo
+
+- una regla: 2*N-1
+- otra: 1.5 * N
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##indicadores
+**lead time**: tiempo que pasa desde que un item entre en el tablero kanban hasta que llega a la última fase
+
+**cycle time**: tiempo que pasa desde que se empeza a trabajar con el item h
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##columnas
+básicas: por hacer, haciendo, hecho
+
+de proceso: análisis, diseño, implementación, pruebas
+
+buffer: asegura la fluidez entre dos flujos consecutivos del proceso
+
+####cada una de ellas puede tener su propio wip y su propio buffer
+
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##cuellos de botella
+se llega al máximo wip y no se pueden introducir nuevas tareas en el tablero
+
+####¿hay alguna etapa que tenga demasiados postits?
+
+alternativa directa: repartir tareas entre otros miembros del equipo
+
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##CoS
+diferentes clases de servicio pueden señalarse con diferentes colores:
+
+- verde: deseable, pero no urgente ni importante
+- rojo: urgente
+- azul: con fecha límite de finalización
+
+para las tareas urgentes, podría utilizarse una **fila de aceleración** (no contarían para el wip, pero deberían ser excepciones)
+
+otra técnica para clasificar tareas: columnas como **filtros de prioridad**
 
 
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##¿y si tengo varios proyectos a la vez?
+un tablero para cada uno de ellos
+
+- más claro
+- más sitios a donde mirar...
+
+todos al mismo tablero
+
+- saturación de información
+- distinción con colores o pegatinas
+
+####¿¿por qué tienes varios proyectos a la vez??
+
+</script>
+                </section>
+</section>
+<section>
+<section data-markdown>
+                <script type="text/template">
+##caso práctico:
+
+##kanban en el ICANE
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![kanban icane 1](./img/kbicane1.png)
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![kanban icane 2](./img/kbicane2.png)
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![kanban icane 3](./img/kbicane3.png)
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![kanban icane 4](./img/kbicane4.png)
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![kanban icane 5](./img/kbicane5.png)
+</script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![kanban icane 6](./img/kbicane6.png)
+</script>
+                </section>
+<section data-markdown data-background="./img/kanbanicane.jpg">
+                <script type="text/template">
+
+</script>
+                </section>
+</section>
                 <section>
 
                 <section data-id="15">
