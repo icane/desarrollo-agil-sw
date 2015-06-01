@@ -35,293 +35,13 @@
     </head>
 
     <body>
-
+<div>
+<a href="./index.html#/1"><img alt="índice" src="./img/i.png"></a>
+</div>
         <div class="reveal">
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                <section data-markdown>
-#grails
-![grails](./img/grails-logo.jpg)
-
-                </section>
-                <section>
-                <section data-markdown>
-                <script type="text/template">
-## qué es grails
-
->&ldquo;un **framework web** para la plataforma **java** cuyo propósito es aumentar la **productividad** del desarrollador&rdquo;
-
-
-                </script>
-                </section>
-                <section data-markdown>
-                <script type="text/template">
-## características
-###desarrollo ágil
-enfoque en la **funcionalidad** y no en el bajo nivel
-
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-arquitectura basada en **plugins**
-
-<!-- .element: class="fragment" data-fragment-index="2" -->
-
-**convención** sobre configuración (sin XML)
-
-<!-- .element: class="fragment" data-fragment-index="3" -->
-
-reutilización de código *legacy* en java
-
-<!-- .element: class="fragment" data-fragment-index="4" -->
-
-scaffolding
-
-<!-- .element: class="fragment" data-fragment-index="5" -->
-
-entorno rápido de usar (desarrollo, pruebas, producción)
-
-<!-- .element: class="fragment" data-fragment-index="6" -->
-
-[groovy!](http://www.groovy-lang.org/)
-
-<!-- .element: class="fragment" data-fragment-index="7" -->
-
-
-                </script>
-                </section>
-
- <section data-markdown>
-                <script type="text/template">
-## características
-###calidad
-soporte para *test-first programming*: [geb](http://www.gebish.org/testing) y [spock](https://code.google.com/p/spock/)
-
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-rápida ejecución de tests y aplicación: contenedor empotrado
-
-<!-- .element: class="fragment" data-fragment-index="2" -->
-
-despliegues de código en caliente
-
-<!-- .element: class="fragment" data-fragment-index="3" -->
-
-menos código a revisar y plugins: [codenarc](http://codenarc.sourceforge.net/)
-
-<!-- .element: class="fragment" data-fragment-index="4" -->
-
-[patrones de diseño](http://www.groovy-lang.org/design-patterns.html) para groovy
-
-<!-- .element: class="fragment" data-fragment-index="5" -->
- </script>
-</section>
-<section data-markdown>
-                <script type="text/template">
-## arquitectura
-
-![arquitectura grails](./img/grailsarch.png)
-
-                </script>
-                </section>
-<section data-markdown>
-                <script type="text/template">
-## ¿os suena?
-
-![arquitectura amap](./img/amap.png)
-
-                </script>
-                </section>
-                </section>
-<section>
-                <section data-markdown data-background="./img/peligro.png" data-background-size="800px">
-                <script type="text/template">
-## groovy
-
-un lenguaje dinámico rico en características para la plataforma java
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-- completamente orientado a objetos
-<!-- .element: class="fragment" data-fragment-index="2" -->
-- tipado estático o dinámico
-<!-- .element: class="fragment" data-fragment-index="3" -->
-- duck typing
-<!-- .element: class="fragment" data-fragment-index="4" -->
-- metaprogramación
-<!-- .element: class="fragment" data-fragment-index="5" -->
-- closures, beans, gstrings...
-<!-- .element: class="fragment" data-fragment-index="6" -->
-- excelente lenguaje de scripting
-<!-- .element: class="fragment" data-fragment-index="7" -->
-
-### java con esteroides
-<!-- .element: class="fragment" data-fragment-index="8" -->
-
-pero... [más lento](http://java.dzone.com/articles/java-7-vs-groovy-21)
-
-<!-- .element: class="fragment" data-fragment-index="8" -->
-                </script>
-                </section>
-                <section data-markdown >
-                <script type="text/template">
-## groovy
-
-imports por defecto (`java.lang.*`, `java.util.*`, `java.net.*`)
-
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-elementos opcionales: punto y coma, tipos de variables, declaración `return`
-
-<!-- .element: class="fragment" data-fragment-index="2" -->
-
-métodos y clases públicos por defecto, miembros privados
-
-<!-- .element: class="fragment" data-fragment-index="3" -->
-
-closures: funciones anónimas que pueden aceptar parámetros, devolver valores, ser asignadas a variables, ser pasadas como argumentos...
-
-<!-- .element: class="fragment" data-fragment-index="4" -->
-
-métodos adicionales para el trabajo con listas
-
-<!-- .element: class="fragment" data-fragment-index="5" -->
-
-operador null safe: `?.`
-
-<!-- .element: class="fragment" data-fragment-index="6" -->
-                </script>
-                </section>
- <section data-markdown >
-                <script type="text/template">
-## groovy vs java
-
-java
-
-      for (String it : new String[] {"Pepe", "Paco", "Ana"}) {
-        if (it.length() <= 4) {
-          System.out.println(it);
-        }
-      }
-
-groovy
-
-      ["Pepe", "Paco", "Ana"].findAll{it.size() <= 4}.each{println it}
-
-                </script>
-                </section>
- </section>
-<section>
-                <section data-markdown>
-                <script type="text/template">
-## gorm
-*grails object relational mapping*
-
-###hibernate con esteroides
-
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-- diseño orientado a dominio
-- asociaciones: `hasOne, hasMany...`
-- inyección automática de finders
-- consultas avanzadas con HQL, criteria...
-- basado en *pogos*
-
-<!-- .element: class="fragment" data-fragment-index="2" -->
-                </script>
-                </section>
- <section data-markdown>
-                <script type="text/template">
-## scaffolding
-generación automática de **interfaces crud** para un dominio
-
-muy útil para demostraciones y aprendizaje
-
-- dinámico o estático
-- generación de controladores y vistas a partir del modelo
-                </script>
-                </section>
- <section data-markdown>
-                <script type="text/template">
-## consola y shell
-útiles para trabajar de forma interactiva con la aplicación
-
-- depuración
-- verificar comportamiento y estado de objetos
-- probar el efecto de `finders`
-
-                </script>
-                </section>
-<section data-markdown>
-                <script type="text/template">
-## gsp y recursos estáticos
-*groovy server pages*: jsp con esteroides
-
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-      <g:each in="${[1,2,3]}" var="num">
-        <p>Number ${num}</p>
-      </g:each>
-
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-**más flexible y sencillo**
-
-<!-- .element: class="fragment" data-fragment-index="1" -->
-
-*asset pipeline plugin*: procesado de CSS y JS
-
-<!-- .element: class="fragment" data-fragment-index="2" -->
-
-- procesado al vuelo
-- fácil depuración
-- compresión, minificación, cache digests
-
-<!-- .element: class="fragment" data-fragment-index="2" -->
-                </script>
-                </section>
-                </section>
-                <section>
-                <section data-markdown>
-                <script type="text/template">
-## spock
-[testing elegante](http://webconsole.spockframework.org/edit/9001) y altamente expresivo
-
-      def "puede añadir un elemento"() {
-
-          given:
-          def list = new ArrayList<String>()
-          def elemento = "Hola, Spock"
-
-          when:
-          list.add(elemento)
-
-          then:
-          list.size() == 1
-          list.contains(element)
-      }
-
-                </script>
-                </section>
-                <section data-markdown>
-                <script type="text/template">
-## spock
-tests orientados a los datos
-
-      def "máximo de dos números"() {
-
-          expect:
-          Math.max(a, b) == c
-
-	  where:
-          a | b | c
-          1 | 8 | 9
-          7 | 3 | 9
-
-      }
-
-                </script>
-                </section>
-</section>
 <section>
 <section data-markdown>
                 <script type="text/template">
@@ -338,12 +58,24 @@ un framework ágil de desarrollo web abierto y multiplataforma orientado a aumen
 <section data-markdown>
                 <script type="text/template">
 #características
-- metaprogramación: programas que escriben programas (no generación de código)
-- registro activo: acceso a datos basado en el patrón de Fowler
-- convención sobre configuración
-- andamiaje (scaffolding)
-- pruebas integradas
-- entornos de desarrollo, pruebas y producción
+metaprogramación: programas que escriben programas (no generación de código)
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+registro activo: acceso a datos basado en el [patrón de Fowler](http://www.martinfowler.com/eaaCatalog/activeRecord.html)
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+convención sobre configuración
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+andamiaje (scaffolding)
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+pruebas integradas
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+entornos de desarrollo, pruebas y producción
+<!-- .element: class="fragment" data-fragment-index="6" -->
                 </script>
                 </section>
 </section>
@@ -399,7 +131,7 @@ bucle.rb
 
 es **lento**: ~10 veces más que java
 
-es relativamente **nuevo**: menos desarrolladores, menos soporte...
+es menos maduro: menos desarrolladores, menos soporte...
 
 es otra tecnología más...
                 </script>
@@ -410,14 +142,21 @@ es otra tecnología más...
                 <script type="text/template">
 ##rails
 - convención sobre configuración
+<!-- .element: class="fragment" data-fragment-index="1" -->
 - DRY
+<!-- .element: class="fragment" data-fragment-index="2" -->
 - mapeo objeto - relacional
+<!-- .element: class="fragment" data-fragment-index="3" -->
 - patrón MVC
+<!-- .element: class="fragment" data-fragment-index="4" -->
 - reutilización de código
+<!-- .element: class="fragment" data-fragment-index="5" -->
 - prácticas ágiles (testing)
+<!-- .element: class="fragment" data-fragment-index="6" -->
 - seguridad
-- enfoque en REST
-
+<!-- .element: class="fragment" data-fragment-index="7" -->
+- enfocado en REST
+<!-- .element: class="fragment" data-fragment-index="8" -->
                 </script>
                 </section>
 <section data-markdown>
@@ -427,8 +166,543 @@ es otra tecnología más...
                 </script>
                 </section>
 </section>
+                <section data-markdown>
+#grails
+![grails](./img/grails-logo.jpg)
 
+                </section>
                 <section>
+                <section data-markdown>
+                <script type="text/template">
+## qué es grails
+
+>&ldquo;un **framework web** abierto para la plataforma **java** cuyo propósito es aumentar la **productividad** del desarrollador&rdquo;
+
+
+                </script>
+                </section>
+       <section data-markdown>
+                <script type="text/template">
+# características
+</script>
+</section>
+                <section data-markdown>
+                <script type="text/template">
+###desarrollo ágil
+enfoque en la **funcionalidad** y no en el bajo nivel
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+arquitectura basada en **plugins**
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+**convención** sobre configuración (sin XML)
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+reutilización de código *legacy* en java
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+scaffolding
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+entorno rápido de usar (desarrollo, pruebas, producción)
+
+<!-- .element: class="fragment" data-fragment-index="6" -->
+
+[groovy!](http://www.groovy-lang.org/)
+
+<!-- .element: class="fragment" data-fragment-index="7" -->
+
+funcionalidad disponible a través de **mixins**: métodos añadidos dinámicamente (funcionalidad inyectada)
+
+<!-- .element: class="fragment" data-fragment-index="8" -->
+                </script>
+                </section>
+
+ <section data-markdown>
+                <script type="text/template">
+##calidad
+soporte para *test-first programming*: [geb](http://www.gebish.org/testing) y [spock](https://code.google.com/p/spock/)
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+rápida ejecución de tests y aplicación: contenedor empotrado
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+despliegues de código en caliente
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+menos código a revisar y plugins: [codenarc](http://codenarc.sourceforge.net/)
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+[patrones de diseño](http://www.groovy-lang.org/design-patterns.html) para groovy
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+ </script>
+</section>
+<section data-markdown>
+                <script type="text/template">
+###seguridad por defecto
+SQL escapado para prevenir inyección SQL
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+las plantillas de **scaffolding** proporcionadas por defecto escapan todos los campos de datos al ser mostrados
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+las **etiquetas** de creación de links de GSP utilizan mecanismos de escape adecuados para prevenir inyección de código
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+prevención contra **XSS**
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+uso de **codecs** para escapar datos devueltos como HTML, Javascript o URLs de cara a prevenir ataques de inyección
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+**spring security**: plugin que integra el famoso framework de autenticación y autorización de usuarios
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+ </script>
+</section>
+<section data-markdown>
+                <script type="text/template">
+##tecnologías
+servicios web
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+- REST por defecto
+- SOAP a través de plugins
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+internacionalización
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+inyección de dependencias
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+programación asíncrona
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+ </script>
+</section>
+<section data-markdown>
+                <script type="text/template">
+## arquitectura
+
+![arquitectura grails](./img/grailsarch.png)
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## ¿os suena?
+
+![arquitectura amap](./img/amap.png)
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## spring/hibernate tradicional
+
+configurar el arquetipo lleva tiempo
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+la cosa se complica rápidamente
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+hay demasiadas capas de abstracción: DAOs, DTOs...
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+hay demasiados archivos de configuración
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+####hoy día, ya no tantos...
+<!-- .element: class="fragment" data-fragment-index="5" -->
+                </script>
+                </section>
+
+                </section>
+<section>
+                <section data-markdown data-background="./img/peligro.png" data-background-size="800px">
+                <script type="text/template">
+## groovy
+
+un lenguaje dinámico rico en características para la plataforma java
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+- completamente orientado a objetos
+<!-- .element: class="fragment" data-fragment-index="2" -->
+- tipado estático o dinámico
+<!-- .element: class="fragment" data-fragment-index="3" -->
+- duck typing
+<!-- .element: class="fragment" data-fragment-index="4" -->
+- metaprogramación
+<!-- .element: class="fragment" data-fragment-index="5" -->
+- closures, beans, gstrings...
+<!-- .element: class="fragment" data-fragment-index="6" -->
+- excelente lenguaje de scripting
+<!-- .element: class="fragment" data-fragment-index="7" -->
+
+### java con esteroides
+<!-- .element: class="fragment" data-fragment-index="8" -->
+
+pero... [más lento](http://java.dzone.com/articles/java-7-vs-groovy-21)
+
+<!-- .element: class="fragment" data-fragment-index="8" -->
+                </script>
+                </section>
+                <section data-markdown >
+                <script type="text/template">
+### groovy
+
+imports por defecto (`java.lang.*`, `java.util.*`, `java.net.*`)
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+elementos opcionales: punto y coma, tipos de variables, declaración `return`
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+métodos y clases públicos por defecto, miembros privados
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+closures: funciones anónimas que pueden aceptar parámetros, devolver valores, ser asignadas a variables, ser pasadas como argumentos...
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+métodos adicionales para el trabajo con listas
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+operador null safe: `?.`
+
+<!-- .element: class="fragment" data-fragment-index="6" -->
+                </script>
+                </section>
+ <section data-markdown >
+                <script type="text/template">
+## groovy vs java
+
+java
+
+      for (String it : new String[] {"Pepe", "Paco", "Ana"}) {
+        if (it.length() <= 4) {
+          System.out.println(it);
+        }
+      }
+
+groovy
+
+      ["Pepe", "Paco", "Ana"].findAll{it.size() <= 4}.each{println it}
+
+                </script>
+                </section>
+ </section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+## domain driven design
+>un modelo de dominio no es sólo un diagrama, sino una abstracción rigurosamente organizada y selectiva del conocimiento que reside en un experto de negocio
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+- el modelo y el corazón del diseño se dan forma el uno al otro
+- el modelo es la **columna vertebral** del lenguaje utilizado por todos los miembros del equipo
+- el modelo es **conocimiento** destilado
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## modelado efectivo
+1. unir el modelo con la implementación
+2. cultivar un lenguaje basado en el modelo
+3. desarrollar un modelo rico en conocimiento
+4. destilar el modelo
+5. experimentar
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+todo dentro de un marco de aprendizaje continuo: **cuando hablamos de software, nunca sabemos lo suficiente**
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## ddd en grails
+grails se basa en `fat models` y `skinny controllers`
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+el desarrollador no tiene por qué conocer detalles de implementación de la base de datos...
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+####simplemente modela el dominio
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+y a partir del dominio, a través de scaffolding, se puede generar una aplicación CRUD base
+<!-- .element: class="fragment" data-fragment-index="4" -->
+                </script>
+                </section>
+</section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+### convención sobre configuración
+
+- `UserService.groovy` genera automáticamente un bean llamado `userService`
+- los campos de los objetos se "autoenganchan" por nombre
+- los nombres de clases se mapean a nombres de tabla
+- los nombres de campos se mapean a nombres de columna
+- los métodos dinámicos de búsqueda se añaden en tiempo de ejecución
+- los controladores y sus acciones se mapean automáticamente a urls basadas en sus nombres: `UserController.list()` se mapea a `/user/list`
+
+
+                </script>
+                </section>
+     </section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+## gorm
+*grails object relational mapping*
+
+###hibernate con esteroides
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+- diseño orientado a dominio
+- asociaciones: `hasOne, hasMany...`
+- inyección automática de finders
+- consultas avanzadas con HQL, criteria...
+- basado en *pogos*
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+                </script>
+                </section>
+  <section data-markdown>
+                <script type="text/template">
+## spring MVC
+lógica básica de controlador
+
+validación y data binding
+
+configuraciones de tiempo de ejecución
+
+transaccionalidad
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## scaffolding
+generación automática de **interfaces crud** para un dominio
+
+muy útil para demostraciones y aprendizaje
+
+- dinámico o estático
+- generación de controladores y vistas a partir del modelo
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## consola y shell
+útiles para trabajar de forma interactiva con la aplicación
+
+- depuración
+- verificar comportamiento y estado de objetos
+- probar el efecto de `finders`
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## gsp y recursos estáticos
+*groovy server pages*: jsp con esteroides
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+      <g:each in="${[1,2,3]}" var="num">
+        <p>Number ${num}</p>
+      </g:each>
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+**más flexible y sencillo**
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+*asset pipeline plugin*: procesado de CSS y JS
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+- procesado al vuelo
+- fácil depuración
+- compresión, minificación, cache digests
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## plugins
+el **núcleo de grails**: en sí mismo, se construye a partir de un conjunto de plugins
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+en grails, el plugin es la unidad estándar de código reutilizable
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+####cualquiera puede escribir un plugin
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+                </script>
+                </section>
+                </section>
+                <section>
+                <section data-markdown>
+                <script type="text/template">
+## spock
+[testing elegante](http://webconsole.spockframework.org/edit/9001) y altamente expresivo
+
+      def "puede añadir un elemento"() {
+
+          given:
+          def list = new ArrayList<String>()
+          def elemento = "Hola, Spock"
+
+          when:
+          list.add(elemento)
+
+          then:
+          list.size() == 1
+          list.contains(element)
+      }
+
+                </script>
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+## spock
+tests orientados a los datos
+
+      def "máximo de dos números"() {
+
+          expect:
+          Math.max(a, b) == c
+
+	  where:
+          a | b | c
+          1 | 8 | 9
+          7 | 3 | 9
+
+      }
+
+                </script>
+                </section>
+</section>
+ <section>
+                <section data-markdown>
+ <script type="text/template">
+##grails vs ror
+
+|característica|grails|ror|
+|--------------|------|---|
+|lenguaje|groovy|ruby|
+|servidores|tomcat,jboss,jetty...|mongrel, fastcgi
+|enfoque|orientado a dominio|orientado a db|
+|orm|hibernate|active record|
+|tipado|estático/dinámico|dinámico
+|testing|spock, junit, mockito|rspec, cucumber|
+|threads|nativo|pobre|
+               
+</script>
+ </section>
+ <section data-markdown>
+ <script type="text/template">
+##grails vs ror
+|característica|grails|ror|
+|--------------|------|---|
+|infraestructura|alta|baja|
+|aprendizaje|fácil|fácil + db|
+|madurez|joven|más maduro|
+|configuración|fácil|peor en Windows|
+|rendimiento|escala|escala mal
+|estructura|más compleja|sencilla|
+|comunidad|pequeña|grande|
+    
+</script>
+ </section>
+ </section>
+<section>
+ <section data-markdown>
+                <script type="text/template">
+## problemas detectados
+magia negra: generación de código misteriosa en ocasiones
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+lejanía de la fuente: dificultad para depurar
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+pesado: producción de **mega-artefactos**
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+orientación al plugin:
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+- más niveles de complejidad
+- más fuentes de error desconocidas
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## el futuro de grails
+####encontrar patrocinador
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+¿apache software foundation?
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+- mantener las partes positivas
+<!-- .element: class="fragment" data-fragment-index="3" -->
+- introducir perfiles de aplicaciones
+<!-- .element: class="fragment" data-fragment-index="4" -->
+- mejorar el rendimiento
+<!-- .element: class="fragment" data-fragment-index="5" -->
+- limitar la generación de código
+<!-- .element: class="fragment" data-fragment-index="6" -->
+
+[spring boot](http://projects.spring.io/spring-boot/)
+<!-- .element: class="fragment" data-fragment-index="7" -->
+                </script>
+                </section>
+ </section>
+               
 
                 <section data-id="15">
                 <div>
