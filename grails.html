@@ -1,0 +1,283 @@
+ <!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Desarrollo ágil de Software - CEARC 2015</title>
+
+        <meta name="description" content="Curso de Desarrollo Ágil de Software para el Centro de Estudios de la Administración Pública Regional de Cantabria">
+        <meta name="author" content="Miguel Expósito Martín">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+<div>
+<a href="./index.html#/1"><img alt="índice" src="./img/i.png"></a>
+</div>
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section data-markdown>
+#grails
+![grails](./img/grails-logo.jpg)
+
+                </section>
+                <section>
+                <section data-markdown>
+                <script type="text/template">
+## qué es grails
+
+>&ldquo;un **framework web** para la plataforma **java** cuyo propósito es aumentar la **productividad** del desarrollador&rdquo;
+
+
+                </script>
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+## características
+###desarrollo ágil
+- enfoque en la **funcionalidad** y no en el bajo nivel
+- arquitectura basada en **plugins**
+- **convención** sobre configuración
+- reutilización de código *legacy* en java
+- scaffolding
+- [groovy!](http://www.groovy-lang.org/)
+
+
+                </script>
+                </section>
+
+ <section data-markdown>
+                <script type="text/template">
+## características
+###calidad
+- soporte para *test-first programming*: [geb](http://www.gebish.org/testing) y [spock](https://code.google.com/p/spock/)
+- rápida ejecución de tests y aplicación: contenedor empotrado
+- despliegues de código en caliente
+- menos código a revisar y plugins: [codenarc](http://codenarc.sourceforge.net/)
+- [patrones de diseño](http://www.groovy-lang.org/design-patterns.html) para groovy
+ </script>
+</section>
+<section data-markdown>
+                <script type="text/template">
+## arquitectura
+
+![arquitectura grails](./img/grailsarch.png)
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## ¿os suena?
+
+![arquitectura amap](./img/amap.png)
+
+                </script>
+                </section>
+                </section>
+<section>
+                <section data-markdown data-background="./img/peligro.png" data-background-size="800px">
+                <script type="text/template">
+## groovy
+
+un lenguaje dinámico rico en características para la plataforma java
+
+- completamente orientado a objetos
+- tipado estático o dinámico
+- duck typing
+- closures, beans, gstrings...
+- excelente lenguaje de *scripting*
+
+### java con esteroides
+
+pero... [más lento](http://java.dzone.com/articles/java-7-vs-groovy-21)
+
+                </script>
+                </section>
+                <section data-markdown >
+                <script type="text/template">
+## groovy
+
+- imports por defecto (`java.lang.*`, `java.util.*`, `java.net.*`)
+- elementos opcionales: punto y coma, tipos de variables, declaración `return`
+- métodos y clases públicos por defecto, miembros privados
+- closures: funciones anónimas que pueden aceptar parámetros, devolver valores, ser asignadas a variables, ser pasadas como argumentos...
+- métodos adicionales para el trabajo con listas
+                </script>
+                </section>
+ </section>
+<section>
+                <section data-markdown>
+                <script type="text/template">
+## gorm
+*grails object relational mapping*
+
+###hibernate con esteroides
+
+- diseño orientado a dominio
+- asociaciones: `hasOne, hasMany...`
+- inyección automática de finders
+- consultas avanzadas con HQL, criteria...
+- basado en *pogos*
+
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## scaffolding
+generación automática de **interfaces crud** para un dominio
+
+muy útil para demostraciones y aprendizaje
+
+- dinámico o estático
+- generación de controladores y vistas a partir del modelo
+                </script>
+                </section>
+ <section data-markdown>
+                <script type="text/template">
+## consola y shell
+útiles para trabajar de forma interactiva con la aplicación
+
+- depuración
+- verificar comportamiento y estado de objetos
+- probar el efecto de `finders`
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## gsp y recursos estáticos
+*groovy server pages*: jsp con esteroides
+
+      <g:each in="${[1,2,3]}" var="num">
+        <p>Number ${num}</p>
+      </g:each>
+
+**más flexible y sencillo**
+
+*asset pipeline plugin*: procesado de CSS y JS
+
+- procesado al vuelo
+- fácil depuración
+- compresión, minificación, cache digests
+                </script>
+                </section>
+                </section>
+                <section>
+                <section data-markdown>
+                <script type="text/template">
+## spock
+[testing bonito](http://webconsole.spockframework.org/edit/9001) y altamente expresivo
+
+      def "puede añadir un elemento"() {
+
+          given:
+          def list = new ArrayList<String>()
+          def elemento = "Hola, Spock"
+
+          when:
+          list.add(elemento)
+
+          then:
+          list.size() == 1
+          list.contains(element)
+      }
+
+                </script>
+                </section>
+                <section data-markdown>
+                <script type="text/template">
+## spock
+tests orientados al dato
+
+      def "máximo de dos números"() {
+
+          expect:
+          Math.max(a, b) == c
+
+	  where:
+          a | b | c
+          1 | 8 | 9
+          7 | 3 | 9
+
+      }
+
+                </script>
+                </section>
+</section>
+
+
+                <section>
+
+                <section data-id="15">
+                <div>
+
+                    <a href="http://www.cantabria.es"><img alt="Logotipo DGOT"  src="./img/informatica500.png" style="max-width: none; max-height: none; color: rgb(255, 153, 0);  vertical-align:middle; " /> </a>
+                    <p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a href="https://github.com/icane/desarrollo-agil-sw">Acceso al repositorio del curso</a></span></p>
+
+                    <p style="font-size:20px; text-align:center; margin-top: 1em"><span style="font-weight: bold;"><a href="http://about.me/predicador37">Miguel Expósito Martín</a></span></p>
+
+
+                </div>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+		slideNumber: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+                { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
