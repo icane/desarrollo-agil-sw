@@ -231,19 +231,245 @@ escribir código para gestionar configuración y provisión automática de infra
 - de uso de contenedores: docker, vagrant, AWS, openstack
                 </script>
                 </section>
+ </section>
+<section>
  <section data-markdown>
                 <script type="text/template">
+##puppet
+
+un gestor de la configuración
+
+####¿para qué?
+
+*para definir el estado de nuestra infraestructura de sistemas y automáticamente forzar dicho estado*
+
+**automatización del proceso de entrega de software**
+
+- provisionamiento de servidores físicos y virtuales
+- orquestación
+- reporting
 
                 </script>
                 </section>
 <section data-markdown>
                 <script type="text/template">
+##puppet
+
+####pros
+
+libera tiempo en los proyectos
+
+asegura la consistencia, fiabilidad y estabilidad del entorno
+
+facilita una colaboración y comunicación estrecha entre administradores de sistemas y
+desarrolladores
+
+ayuda a entregar valor
+
+####contras
+
+hay que conocer ruby
+
+problemas de escalado con decenas de miles de nodos
+
+rápida evolución
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##puppet
+
+####cómo funciona
+
+definir
+
+simular
+
+obligar
+
+informar
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##puppet
+
+[¿quién lo usa?](https://puppetlabs.com/about/customers)
+
+[![cern](./img/cern.jpg)](https://indico.cern.ch/event/220443/session/1/contribution/42/material/slides/1.pdf)
 
                 </script>
-     </section>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##puppet
 
- </section>
-<section>
+###patrón rol-perfil-módulo
+![puppet_pattern.png](./img/puppet_pattern.png)
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##puppet
+
+###en el ICANE...
+
+- patrón rol/perfil
+
+- módulos de la forja, propios y de terceros (git) gestionados por `librarian-puppet`
+
+- `/etc/puppet/` en su propio repositorio git
+
+- clasificación de nodos a partir de hechos (sin ENC)
+
+- separación entre lógica (módulos) y datos en yaml (hiera)
+
+
+                </script>
+                </section>
+<section data-markdown>
+
+##puppet
+
+###role
+<pre><code class="ruby" data-trim>
+      class role::appserver inherits role {
+        notify {"Applying role::appserver": }
+
+        contain profile::rhel
+        contain profile::jdk
+        contain profile::apache_tomcat
+
+        Class['profile::rhel'] -> Class['profile::jdk']
+         -> Class['profile::apache_tomcat']
+      }
+</code></pre>
+
+                </section>
+<section data-markdown>
+
+##puppet
+
+###profile
+ <pre><code class="ruby" data-trim>
+      class profile::rhel {
+        notify {"Applying profile::rhel": }
+        if str2bool("$firstdeploy") {
+          class {'profile::remove_groups':
+            stage => first,
+          }
+          contain profile::epel_install
+          contain profile::packages_install
+          Class['profile::epel_install'] ->
+            Class['profile::packages_install']
+          file {"/etc/facter/facts.d/firstdeploy.yaml":
+            ensure => present,
+            content => "---\nfirstdeploy: \"false\"\n"
+          }
+         }
+        contain profile::inittab_install
+      }
+</code></pre>
+
+                </section>
+<section data-markdown>
+
+##puppet
+
+###datos
+        ---
+	groups_dev_group:
+  	  gcm9998:
+  	      ensure: present
+  	      gid: 1003
+  	  sas9999:
+  	      ensure: present
+  	      gid: 1004
+
+	users_dev:
+	    gcm9998:
+ 	       ensure: present
+  	      uid: 1003
+  	      gid: 1003
+  	      password: '$6$N.L0QnbP$96GcSdfc.CLR46DPwsmMladmCMpdpj4MgabgBkzisnjD5T62MU5P2jse7PH86ExUIiojKMcPtZMTNXPI.y5Mt0'
+      	  shell: '/bin/zsh'
+     	   groups:
+     	     - tomcat6
+     	     - sudo
+       	 comment: Mireya Gutierrez
+     	   managehome: true
+      	  ssh_authorized_keys:
+      	      key_gcm9998_dev:
+      	          type: 'ssh-rsa'
+      	          key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDVPimgbpTNuRYFx61KWWN8DAo0FZ8Xt42i+uAGYZ+wMztOvAjxJQAXWMXiQO0dyuV19JoforiwKuFYRylc472M5AAGpdrwhckEjpHN/mqwp9BGUfQ60R1Dn1ZfUI6tqYUMsZY95UgMv61kJv5gMa5ntozzmMB5XSCyz0tGZQfkO1TfB87OCqxojt7vm45B7Jc1st6p77U6vbqoIVQiS3jHKLA0o9NS5gAjAO3lv9QIojW3NpqkJgiw1R7zCRAa9ug617gU+fZuOYiWYjjtFe1LDoP4QWngPv+arSDGe9AHOBT9ajePKqvQSeyILg8quwO9hWXtWpdGRCa69m3yeooX'
+    	sas9999:
+    	    require: Package[zsh]
+    	    uid: 1004
+    	    gid: 1004
+    	    password: '$6$qmPqlTucvvHsFA$07EJzeCsgMW2QeFqxiT5DXkPHERGpuVrKsXmB/SgxQFMtktWDMfo31FXgCfCPqcEHIr5Ixy22ux3cm7WLLfeJ.'
+      	  shell: '/bin/zsh'
+      	  groups:
+     	       - tomcat6
+     	       - sudo
+    	    comment: Sofia Saiz
+    	    managehome: true
+     	   ssh_authorized_keys:
+    	        key_sas9999_dev:
+                type: 'ssh-rsa'
+                key: 'AAAB3NzaC1yc2EAAAADAQABAAABAQC6C9AqEq619z8J6uJAI2Fny1GDjYsPRvn/eRmWNHcqwJdhy5ndItMCpGUqWp/vW/Zxtdy+tMHVpuOE9urTFFwUoPRwrQHpaos64n65x1YhJ+rChmiCLEGGDBrCEA9yRo3pWVB/uZ1koDMCk/h2/YgWPlkh9fL0rkGLU4Xu7GNXLECBqeC5oIyGfrJW3ZgZZsmJD9gi+PoPqDP+b1vuujEM+QMaop4Lr2hmc0IbwXQSmKzTZnPdqQACnI+l/qX6klKSRCsRq4dqVgRVcQKgYzKbBwoIC9vYhzdSU6oFGItisg5ROIQY16ichUsnLRwQZ7oulfeIMU2aa7oCaiWGs2r9'        		tomcat::ensure: 'stopped'
+	tomcat::enable: false
+	tomcat::version: '7'
+	tomcat_server:
+	  data:
+	    ensure: 'running'
+	    port: '8104'
+	    java_home: '/usr/lib/jvm/java-1.7.0-openjdk-amd64'
+	    setenv:
+      		- 'JAVA_XMX="2048m"'
+     		- 'JAVA_XX_MAXPERMSIZE="2048m"'
+	        - 'ADD_JAVA_OPTS="-Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses"'
+	    services:
+	      Catalina:
+	        connectors:
+	          http-8084:
+	            port: '8084'
+	            protocol: 'HTTP/1.1'
+        	  ajp-8014:
+        	    port: '8014'
+        	    protocol: 'AJP/1.3'
+	    listeners:
+	       org.apache.catalina.core.AprLifecycleListener:
+        	  ssl_engine: 'On'
+	       org.apache.catalina.core.JasperListener: {}
+	       org.apache.catalina.core.JreMemoryLeakPreventionListener: {}
+	       org.apache.catalina.mbeans.GlobalResourcesLifecycleListener: {}
+	       org.apache.catalina.core.ThreadLocalLeakPreventionListener: {}
+	apache_vhost:
+	  marhaus.icane.es:
+	    docroot: '/var/www'
+	    proxy_pass:
+	      - path: '/data'
+	        url: 'http://localhost:8084/data'
+	      - path: '/metadata'
+	        url: 'http://localhost:8085/metadata'
+	      - path: '/dataman'
+	        url: 'http://localhost:8086/dataman'
+	      - path: '/gpecan'
+	        url: 'http://localhost:8087/gpecan'
+	      - path: '/manager/data'
+	        url: 'http://localhost:8084/manager'
+	      - path: '/manager/metadata'
+	        url: 'http://localhost:8085/manager'
+	      - path: '/dm/manager'
+	        url: 'http://localhost:8086/manager'
+	      - path: '/gc/manager'
+	        url: 'http://localhost:8087/manager'
+
+                </section>
+</section>
+
                 <section data-markdown>
                 <script type="text/template">
 ## edición productiva
@@ -258,93 +484,7 @@ escribir código para gestionar configuración y provisión automática de infra
 
                 </script>
                 </section>
- <section data-markdown>
-                <script type="text/template">
-## planning poker
 
-- a cada miembro del equipo se le da un mazo de cartas con la secuencia de fibonacci
-- se toma la historia a estimar y se expone en el grupo
-- cada uno coge la carta que cree que representa el esfuerzo y la pone boca abajo sobre la mesa
-- se da la vuelta a todas las cartas a la vez
-- si se está a menos de dos cartas, se hace la media
-- si se está de tres cartas, la más alta y la más baja discuten
-- se vuelve a estimar
-                </script>
-                </section>
-<section data-markdown>
-                <script type="text/template">
-## consejos prácticos
-
-- equiparar el punto de esfuerzo a la hora de trabajo
-- utilizar la experiencia pasada
-- un par de malas estimaciones no implican un desastre
-- no pasemos más de 2 horas estimando (ni en cualquier otra reunión)
-- conocer la velocidad del equipo: puntos realizados / puntos planificados (se puede expresar en horas por punto)
-
-                </script>
-                </section>
-
-<section data-markdown>
-                <script type="text/template">
-## ejercicio
-
-- **como** usuario **quiero** ser capaz de identificarme en el sistema **para** acceder a mi información personal
-- **como** gestor **quiero** poder importar automáticamente asientos de contabilidad desde el SIC del Gobierno de Cantabria **para** poder enviárselos al MINHAP desde mi aplicación **y** así cumplir con la normativa vigente
-- **como** programador **quiero** que cada vez que haga commit de un archivo XML al sistema de control de versiones este se valide previamente **para** evitar introducir y propagar errores en el servidor
-                </script>
-                </section>
-
-                </section>
-                <section>
-                <section data-markdown>
-                <script type="text/template">
-## estimar un proyecto
-
-      CT = SUMA(Fi) * Vd * C + ME
-
-en donde:
-
-- CT es el coste total en €.
-- Fi es el número de puntos de esfuerzo estimados por cada característica, historia o requisito (y `SUMA()` es un sumatorio).
-- Vd es la velocidad de desarrollo del adjudicatario en horas / punto.
-- C es el coste medio de la hora de trabajo del adjudicatario en € / hora.
-- ME es el margen de incertidumbre.
-
-####y refinar
-                </script>
-                </section>
- <section data-markdown>
-                <script type="text/template">
-## número de iteraciones
-####ejemplo
-
-- proyecto de 250 puntos historia
-- jornadas de 6 horas
-- semanas de 5 días
-- iteraciones de dos semanas
-- velocidad de desarrollo de 1.5 horas / punto
-- puntos por sprint: 6 * 5 * 2 / Vd = 40 
-
-Nº de iteraciones: 250 / 40 = 6,25 **(7)**
-
-**Duración: 14 semanas**
-                </script>
-                </section>
-<section data-markdown>
-                <script type="text/template">
-## duración de una iteración
-####respuesta rápida: de 2 a 4 semanas
-
-depende de:
-
-- frecuencia de demostración
-- frecuencia de reajuste de objetivos
-- tiempo que tarda una idea en transformarse en software
-
-####a menor tiempo de iteración, mayor sofisticación debe tener el equipo de desarrollo
-                </script>
-                </section>
-</section>
 
 
                 <section>
