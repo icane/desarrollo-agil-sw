@@ -51,11 +51,22 @@
 ## microservices
 *&ldquo;un enfoque para desarrollar una única aplicación como una suite de pequeños servicios, cada uno ejecutándose en su propio proceso y comunicándose a través de mecanismos ligeros (generalmente, una API de recursos HTTP)&rdquo;*
 
-- se construyen en torno a funcionalidad
-- se despliegan de manera independiente
-- están construidos en distintas tecnologías y utilizan diferentes tecnologías de almacenamiento
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+- se construyen en torno a **funcionalidad**
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+- se despliegan de manera **independiente**
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+están construidos en distintas tecnologías y utilizan diferentes tecnologías de almacenamiento
+<!-- .element: class="fragment" data-fragment-index="4" -->
 
 <small>fuente: [Fowler](http://martinfowler.com/articles/microservices.html)</small>
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
 
                 </script>
                 </section>
@@ -63,11 +74,14 @@
                 <script type="text/template">
 ## sistemas monolíticos
 cliente + backend + base de datos
-
+<!-- .element: class="fragment" data-fragment-index="1" -->
 ####cualquier cambio en el sistema implica construir y desplegar una nueva versión del backend
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 - a veces se hace difícil mantener una estructura modular
 - el escalado, de necesitarse, se aplica a todo el sistema y no a la parte que requiere más recursos
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
                 </script>
                 </section>
 <section data-markdown>
@@ -82,10 +96,14 @@ cliente + backend + base de datos
 ## servicios como componentes
 
 - componentes: unidad de software independiemente reemplazable y actualizable
+<!-- .element: class="fragment" data-fragment-index="1" -->
 - biblioteca: componentes enlazados en un programa y llamados usando llamadas a funciones en memoria
+<!-- .element: class="fragment" data-fragment-index="2" -->
 - servicios: componentes fuera del proceso que se comunican con mecanismos como peticiones a servicios web o RPC
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ####utilizar servicios como componentes permite poder desplegarlos de manera independiente
+<!-- .element: class="fragment" data-fragment-index="4" -->
 
 </script>
 </section>
@@ -94,10 +112,15 @@ cliente + backend + base de datos
                 <script type="text/template">
 ## organización según el negocio
 equipos multi-funcionales con las habilidades necesarias para el desarrollo, la experiencia del usuario, la gestión del proyecto, las bases de datos...
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 evitar la [Ley de Conway](http://www.melconway.com/Home/Committees_Paper.html):
 
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
 >&ldquo;cualquier organización que diseña un sistema (definido de forma amplia) producirá un diseño cuya estructura es una copia de la estructura de comunicación de la organización&rdquo;
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
                 </script>
                 </section>
 <section data-markdown>
@@ -119,32 +142,44 @@ evitar la [Ley de Conway](http://www.melconway.com/Home/Committees_Paper.html):
 ## productos, no proyectos
 **modelo de proyecto**: se entrega el software cuando se considera completo, delegando la responsabilidad al equipo de mantenimiento. El equipo de desarrollo se desmantela.
 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
 **modelo de producto**: el equipo de desarrollo asume plena responsabilidad también cuando el software está en producción. Esto les lleva a un contacto diario con el software y sus usuarios.
 
-####el software se convierte en una relación viva
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
+####el software se convierte en una relación viva
+<!-- .element: class="fragment" data-fragment-index="3" -->
                 </script>
                 </section>
 <section data-markdown>
                 <script type="text/template">
 ##comunicación sencilla
 frente a los ESB, que incluyen sofisticados sistemas de enrutado, coreografía, transformación, reglas de negocio, etc...
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ####microservicios desacoplados y coherentes, usando HTTP
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 - end-point inteligente
+<!-- .element: class="fragment" data-fragment-index="3" -->
 - "tuberías tontas"
+<!-- .element: class="fragment" data-fragment-index="4" -->
                 </script>
                 </section>
 <section data-markdown>
                 <script type="text/template">
 ##gobernanza descentralizada
-para cada problema, su solución: no todo es un clavo y no todo es un martillo
+para cada problema, su solución: **no todo es un clavo y no todo es un martillo**
 
-en vez de un catálogo centralizado de estándares en una tecnología única, un catálogo de herramientas útiles para que otros desarrolladores puedan resolver problemas similares
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+en vez de un catálogo centralizado de estándares en una tecnología única, un **catálogo de herramientas** útiles para que otros desarrolladores puedan resolver problemas similares
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 ejemplos: Netflix, Amazon...
-
+<!-- .element: class="fragment" data-fragment-index="3" -->
                 </script>
                 </section>
 <section data-markdown>
@@ -169,17 +204,39 @@ ejemplos: Netflix, Amazon...
 ####¿un servidor para cada microservicio?
 
 no necesariamente...
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 usar servidores empotrados permite una mayor automatización, despliegues más rápidos y menor esfuerzo de mantenimiento
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+####spring boot, dropwizard: 
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+ejecución de un jar sin servidor de aplicaciones
+<!-- .element: class="fragment" data-fragment-index="4" -->
                 </script>
                 </section>
 <section data-markdown>
                 <script type="text/template">
 ##contras
-- impacto en rendimiento debido al overhead HTTP, de red y de serialización
-- heterogeneidad e interacciones complejas
-- gestión de dependencias
-- necesidad de mantener un registro de servicios
+impacto en **rendimiento** debido al overhead HTTP, de red y de serialización
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+heterogeneidad e **interacciones complejas**
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+gestión de dependencias
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+necesidad de mantener un registro de servicios
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+mayor **complejidad de mantenimiento**: paliable con gestión de la configuración
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
 
                 </script>
                 </section>
@@ -196,7 +253,7 @@ comparten los **mismos valores** que el manifiesto ágil
                 </section>
  <section data-markdown>
                 <script type="text/template">
-## el horror de sistemas
+## el "horror" de sistemas
 >esta aplicación no se desplegará en nuestra infraestructura porque... {está obsoleta, no tenemos capacidad suficiente, no damos soporte a esa versión}
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -211,24 +268,43 @@ comparten los **mismos valores** que el manifiesto ágil
                 <script type="text/template">
 ##principios
 - cultura, simplicidad, automatización, mejora continua
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ###infrastructure as code
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 escribir código para gestionar configuración y provisión automática de infraestructura y despliegues
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ####no se trata sólo de scripts
+<!-- .element: class="fragment" data-fragment-index="4" -->
 
 - control de versiones, testing, patrones de diseño...
+<!-- .element: class="fragment" data-fragment-index="5" -->
                 </script>
                 </section>
  <section data-markdown>
                 <script type="text/template">
 ## herramientas
-- las propias del desarrollo ágil: scrum, kanban
+- las propias del desarrollo ágil: [scrum](https://www.icescrum.com/), [kanban](https://trello.com/)
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
 - propias de operaciones: virtualización, cloud
-- de despliegue: jenkins, travis
-- de gestión de configuración: puppet, chef, ansible
-- de uso de contenedores: docker, vagrant, AWS, openstack
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+- de despliegue: [jenkins](https://jenkins-ci.org/), [travis](https://travis-ci.org/)
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+- de gestión de configuración: [puppet](https://puppetlabs.com/), [chef](https://www.chef.io/chef/), [ansible](http://www.ansible.com/home)
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+- de uso de contenedores: [docker](https://www.docker.com/tryit/), [vagrant](https://www.vagrantup.com/), [AWS](http://aws.amazon.com/es/), [openstack](https://www.openstack.org/)
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
                 </script>
                 </section>
  </section>
@@ -238,17 +314,21 @@ escribir código para gestionar configuración y provisión automática de infra
 ##puppet
 
 un gestor de la configuración
-
+<!-- .element: class="fragment" data-fragment-index="1" -->
 ####¿para qué?
-
+<!-- .element: class="fragment" data-fragment-index="2" -->
 *para definir el estado de nuestra infraestructura de sistemas y automáticamente forzar dicho estado*
 
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
 **automatización del proceso de entrega de software**
+<!-- .element: class="fragment" data-fragment-index="4" -->
 
 - provisionamiento de servidores físicos y virtuales
 - orquestación
 - reporting
 
+<!-- .element: class="fragment" data-fragment-index="5" -->
                 </script>
                 </section>
 <section data-markdown>
@@ -257,15 +337,21 @@ un gestor de la configuración
 
 ####pros
 
-libera tiempo en los proyectos
+libera **tiempo** en los proyectos
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 asegura la consistencia, fiabilidad y estabilidad del entorno
 
-facilita una colaboración y comunicación estrecha entre administradores de sistemas y
-desarrolladores
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
-ayuda a entregar valor
+facilita una **colaboración y comunicación** estrecha entre administradores de sistemas y desarrolladores
 
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+ayuda a **entregar valor**
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
                 </script>
                 </section>
 <section data-markdown>
@@ -275,10 +361,13 @@ ayuda a entregar valor
 ####contras
 
 hay que conocer ruby
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 problemas de escalado con decenas de miles de nodos
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 rápida evolución
+<!-- .element: class="fragment" data-fragment-index="3" -->
                 </script>
                 </section>
 <section data-markdown>
@@ -288,12 +377,16 @@ rápida evolución
 ####cómo funciona
 
 definir
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 simular
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 obligar
+<!-- .element: class="fragment" data-fragment-index="4" -->
 
 informar
+<!-- .element: class="fragment" data-fragment-index="5" -->
                 </script>
                 </section>
 <section data-markdown>
@@ -322,16 +415,24 @@ informar
 
 ###en el ICANE...
 
-- patrón rol/perfil
+patrón rol/perfil
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
-- módulos de la forja, propios y de terceros (git) gestionados por `librarian-puppet`
+módulos de la forja, propios y de terceros (git) gestionados por `librarian-puppet`
 
-- `/etc/puppet/` en su propio repositorio git
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
-- clasificación de nodos a partir de hechos (sin ENC)
+`/etc/puppet/` en su propio repositorio git
 
-- separación entre lógica (módulos) y datos en yaml (hiera)
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
+clasificación de nodos a partir de hechos (sin ENC)
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+separación entre lógica (módulos) y datos en yaml (hiera)
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
 
                 </script>
                 </section>
@@ -480,12 +581,16 @@ informar
                 <script type="text/template">
 ## vagrant
 creación y configuración de entornos de desarrollo ligeros, reproducibles y portables
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ####un wrapper sobre virtualbox o vmware
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 un archivo de configuración define la máquina, el software a instalar y la forma de acceso
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ####adios a la frase "en mi máquina funciona"
+<!-- .element: class="fragment" data-fragment-index="4" -->
                 </script>
                 </section>
 
@@ -508,6 +613,20 @@ un archivo de configuración define la máquina, el software a instalar y la for
 		end
                 </script>
                 </section>
+<section data-markdown>
+                <script type="text/template">
+## vagrant
+repositorios de plantillas estándar: [vagrantbox](http://www.vagrantbox.es/)
+
+####¿cómo funciona?
+
+        vagrant init
+        vagrant up
+        vagrant ssh
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+                </script>
+                </section>
 </section>
 <section>
 <section data-markdown>
@@ -515,47 +634,72 @@ un archivo de configuración define la máquina, el software a instalar y la for
 ## el poder del texto plano
 se puede almacenar en un [VCS](https://github.com), como si fuera código fuente
 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
 de hecho, **es código fuente**: a partir de md se generan artefactos (PDF)
 
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
 existen servidores de contenido estático basados en markdown:
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 - [jekyll](http://jekyllrb.com/) para blogs y websites estáticos
 - [gollum](https://github.com/gollum/gollum/wiki) para wikis basadas en VCS
 
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
 ####podemos ser muy productivos con texto plano
+<!-- .element: class="fragment" data-fragment-index="4" -->
                 </script>
                 </section>
                 <section data-markdown>
                 <script type="text/template">
 ## markdown
 propósito: fácil de escribir y fácil de leer
-
+<!-- .element: class="fragment" data-fragment-index="1" -->
 ####texto plano
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 los signos de puntuación significan lo que parecen
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 Ejemplo: [**esta presentación**](https://github.com/icane/desarrollo-agil-sw)
 
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
 para generar un PDF maquetado con [latex](http://www.latex-project.org/) a partir de markdown:
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
 
 ####[pandoc](http://pandoc.org/)
 
+<!-- .element: class="fragment" data-fragment-index="5" -->
                 </script>
                 </section>
 <section data-markdown>
                 <script type="text/template">
 ## plantUML
-propósito: realizar diagramas UML en texto plano
+propósito: definir diagramas UML en texto plano
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
 ####los artefactos (PNG) se generan automáticamente
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
 varios tipos de diagramas: clase, secuencia, estado, caso de uso...
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 dispone de un módulo para diseñar GUIs (*wireframing*): [salt](http://plantuml.sourceforge.net/salt.html)
 
-integrable con muchos editores (vi, eclipse...)
+<!-- .element: class="fragment" data-fragment-index="4" -->
 
-implementado en java: es un jar
+integrable con amplia variedad de editores (vi, eclipse...)
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+implementado en java: **es un jar**
+
+<!-- .element: class="fragment" data-fragment-index="6" -->
                 </script>
                 </section>
 <section data-markdown>
@@ -568,14 +712,47 @@ implementado en java: es un jar
 
 [taskwarrior](http://taskwarrior.org/): gestión del tiempo desde la línea de comandos y en texto plano
 
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
       $ task add Preparar borrador del informe due:friday
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
                 </script>
                 </section>
 
  </section>
 
-                <section>
+<section>
+<section data-markdown>
+                <script type="text/template">
+## herramientas de shell
+**[tmux](http://tmux.sourceforge.net/)/[wemux](https://github.com/zolrath/wemux)**: multiplexador de terminales linux/cygwin
 
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+permiten compartir una sesión de consola remotamente con ssh
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+####solución remota para el [pair programming](https://changelog.com/wemux-multi-user-terminal-multiplexing-for-party-pair-pr/)
+
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+**zsh**: shell moderna con autocompletado, integración con git, atajos de sistema...
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+**vi**: editor de texto en modo consola ultra-productivo... una vez que se aprende
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+                </script>
+                </section>
+</section>
+<section data-markdown>
+                <script type="text/template">
+##¿os atrevéis?
+ </script>
+</section>
                 <section data-id="15">
                 <div>
 
