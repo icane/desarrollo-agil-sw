@@ -475,38 +475,104 @@ informar
 
                 </section>
 </section>
+<section>
+<section data-markdown>
+                <script type="text/template">
+## vagrant
+creación y configuración de entornos de desarrollo ligeros, reproducibles y portables
 
+####un wrapper sobre virtualbox o vmware
+
+un archivo de configuración define la máquina, el software a instalar y la forma de acceso
+
+####adios a la frase "en mi máquina funciona"
+                </script>
+                </section>
+
+<section data-markdown>
+                <script type="text/template">
+## vagrant
+		# -*- mode: ruby -*-
+		# vi: set ft=ruby :
+		# Entorno de pruebas Liferay
+		Vagrant.configure(2) do |config|
+		  config.vm.box = "chef/centos-6.5"
+		  config.vm.network "forwarded_port", guest: 80, host: 8000
+		  config.vm.network "forwarded_port", guest:3306, host: 3306
+		  config.vm.network "forwarded_port", guest: 9019, host: 9019
+		  config.vm.network "private_network", ip: "192.168.33.10",
+		  		   :mac => "00505699451C"
+		  config.vm.provider "virtualbox" do |vb|
+		    vb.memory = "4096"
+		  end
+		end
+                </script>
+                </section>
+</section>
+<section>
+<section data-markdown>
+                <script type="text/template">
+## el poder del texto plano
+se puede almacenar en un [VCS](https://github.com), como si fuera código fuente
+
+de hecho, **es código fuente**: a partir de md se generan artefactos (PDF)
+
+existen servidores de contenido estático basados en markdown:
+
+- [jekyll](http://jekyllrb.com/) para blogs y websites estáticos
+- [gollum](https://github.com/gollum/gollum/wiki) para wikis basadas en VCS
+
+####podemos ser muy productivos con texto plano
+                </script>
+                </section>
                 <section data-markdown>
                 <script type="text/template">
-## edición productiva
-###markdown
-
+## markdown
 propósito: fácil de escribir y fácil de leer
 
 ####texto plano
 
 los signos de puntuación significan lo que parecen
 
-Ejemplo: **esta presentación**
+Ejemplo: [**esta presentación**](https://github.com/icane/desarrollo-agil-sw)
 
+para generar un PDF maquetado con [latex](http://www.latex-project.org/) a partir de markdown:
+
+####[pandoc](http://pandoc.org/)
 
                 </script>
                 </section>
- <section data-markdown>
+<section data-markdown>
                 <script type="text/template">
-## el poder del texto plano
-se puede almacenar en un CVS, como si fuera código fuente
+## plantUML
+propósito: realizar diagramas UML en texto plano
 
-de hecho, es código fuente: a partir de md se generan artefactos (PDF)
+####los artefactos (PNG) se generan automáticamente
 
-existen servidores de contenido estático basados en markdown:
+varios tipos de diagramas: clase, secuencia, estado, caso de uso...
 
-- jekyll
-- gollum
+dispone de un módulo para diseñar GUIs (*wireframing*): [salt](http://plantuml.sourceforge.net/salt.html)
+
+integrable con muchos editores (vi, eclipse...)
+
+implementado en java: es un jar
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+## herramientas prometedoras
+[rmtoo](http://rmtoo.florath.net/): captura de requisitos en texto plano con generación de artefactos:
+
+- diagramas de dependencias
+- listas de requisitos con prioridades y estimación de esfuerzo
+
+[taskwarrior](http://taskwarrior.org/): gestión del tiempo desde la línea de comandos y en texto plano
+
+      $ task add Preparar borrador del informe due:friday
                 </script>
                 </section>
 
-
+ </section>
 
                 <section>
 
