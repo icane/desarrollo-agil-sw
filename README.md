@@ -9,7 +9,7 @@ Ediciones: 1
 - Abrir un navegador Chrome
 - Introducir la URL del tema en cuestión y añadirle el parámetro `pdf-print`. Ejemplo:
 
-      http://icane.github.io/desarrollo-agil-sw/summary.html?print-pdf#/
+      http://icane.github.io/desarrollo-agil-sw/summary.html?pdf-print#/
 
 - Seleccionar la opción `imprimir` de Chrome y guardar como PDF
 
