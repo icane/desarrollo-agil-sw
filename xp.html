@@ -35,9 +35,7 @@
     </head>
 
     <body>
-<div>
-<a href="./index.html#/1"><img alt="índice" src="./img/i.png"></a>
-</div>
+
         <div class="reveal">
 
             <!-- Any section element inside of this container is displayed as a slide -->
@@ -677,23 +675,20 @@ pizarras, gráficas, indicadores, paredes... todo **en un golpe de vista**
 cansados es difícil reconocer si se está restando valor al producto
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-***técnicas***: "zona solitaria", pomodoros...
+##¡¡vete a dormir!!
 
 <!-- .element: class="fragment" data-fragment-index="3" -->
+
+obstinación, falta de creatividad, disminución de moral, irritabilidad...
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+<small>fuente: [Rework](http://37signals.com/rework/): *go to sleep*, David Heinemeier Hanson, Jason Fried</small>
+
+<!-- .element: class="fragment" data-fragment-index="4" -->
                 </script>
                 </section>
-<section data-markdown data-background="./img/pomodoro.png">
-<script type="text/template">
-## técnica pomodoro
-1. decidir tarea a realizar
-2. poner pomodoro a 25 minutos
-3. trabajar intensivamente y anotar una X cuando el reloj suene
-3. hacer pausa de 5 minutos
-4. cada cuatro pomodoros, hacer pausa más larga (15 minutos)
 
-pair programming con pomodoros...
-</script>
- </section>
  </section>
 <section>
 <section data-markdown data-background="./img/important.jpg">
@@ -718,6 +713,17 @@ pair programming con pomodoros...
 <small>fuente: [Olaf Lewitz, Agile coach](http://trustartist.com/2015/01/27/pair-programming-economics/)</small>
  </script>
  </section>
+<section data-markdown>
+                <script type="text/template">
+##herramientas
+
+- [teamviewer](https://www.teamviewer.com/es/)
+- [tmux/wemux](https://github.com/zolrath/wemux)
+
+[ejemplo](https://netguru.co/blog/what-s-a-pair-to-do-pair)
+</script>
+        </section>
+
  </section>
                 <section>
 <section data-markdown>
@@ -1127,6 +1133,52 @@ los proyectos largos funcionan bien con XP porque los tests previenen muchos de 
             });
 
         </script>
+<a class="fork-reveal" style="display: none;" href="./index.html#/1"><img style="position: absolute; top: 0; right: 0; border: 0; padding-top:10; padding-right:10; " src="./img/i.png" alt="Índice"></a>
+		<div class="share-reveal" style="display: none; position: absolute; bottom: 16px; left: 20%; margin-left: -139px; z-index: 20;">
+			
+		</div>
 
+		<style>
+			/* Social sharing */
+			.share-reveal a {
+				display: inline-block;
+				height: 34px;
+				line-height: 34px;
+				padding: 0 10px;
+				color: #fff;
+				font-family: Helvetica;
+				text-decoration: none;
+				font-size: 12px;
+				vertical-align: top;
+				text-transform: uppercase;
+				box-sizing: border-box;
+			}
+
+			.share-reveal svg {
+				vertical-align: middle;
+			}
+
+			.share-reveal a + a {
+				margin-left: 10px;
+			}
+		</style>
+
+
+		<script>
+			[].slice.call( document.querySelectorAll( '.share-reveal-facebook, .share-reveal-twitter' ) ).forEach( function( element ) {
+				element.addEventListener( 'click', function( event ) {
+					event.preventDefault();
+					var width = 500, height = 300;
+					var winTop = window.screenY + (window.screen.height / 2) - (height / 2);
+					var winLeft = window.screenX + (window.screen.width / 2) - (width / 2);
+					window.open(this.href, 'shre', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + width + ',height=' + height);
+				} );
+			} );
+
+			if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+				document.querySelector( '.share-reveal' ).style.display = 'block';
+				document.querySelector( '.fork-reveal' ).style.display = 'block';
+			}
+		</script>
     </body>
 </html>
