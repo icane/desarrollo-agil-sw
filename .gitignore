@@ -9,4 +9,4 @@ js/reveal.min.js
 *~
 *.swp
 *.swo
-*.pdf
+#*.pdf
