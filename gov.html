@@ -35,9 +35,6 @@
     </head>
 
     <body>
-<div>
-<a href="./index.html#/1"><img alt="índice" src="./img/i.png"></a>
-</div>
         <div class="reveal">
 
             <!-- Any section element inside of this container is displayed as a slide -->
@@ -45,7 +42,7 @@
                 <section data-markdown>
 #agilidad en la administración
                 </section>
-
+<section>
  <section data-markdown >
                 <script type="text/template">
 ## problemas
@@ -56,7 +53,31 @@
 
                 </script>
                 </section>
+<section data-markdown >
+                <script type="text/template">
+|en contra|réplica|
+|---------|-------|
+|el precio fijo requiere BDUF|no suele haber conexión entre BDUF y entrega de valor|
+|falta de transparencia sin BDUF|necesarias nuevas formas de presentar ofertas, centradas en valor|
+|contingencias|gestión del riesgo evita llegar a penalizaciones
+|no encaja en las AAPP|Los gobiernos empiezan a darse cuenta de que el mundo está demasiado interconectado, es complejo y dinámico. Los enfoques centralizados pierden fuerza
 
+
+
+                </script>
+                </section>
+<section data-markdown >
+                <script type="text/template">
+>&ldquo;es necesario invertir en investigación para definir nuevos modelos contractuales que den soporte al proceso ágil&rdquo;
+
+####los contratos tradicionales no contemplan complejidad dinámica
+
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+<small>fuente: [Agile Project Management for Government](http://www.amazon.com/Agile-Project-Management-Government-Wernham/dp/0957223404)</small>
+                </script>
+                </section>
+</section>
                 <section>
                 <section data-markdown>
                 <script type="text/template">
@@ -72,6 +93,19 @@ UK: desarrollo de un nuevo sistema de batalla en 18 meses usando [DSDM](http://e
 
                 </script>
                 </section>
+<section data-markdown>
+                <script type="text/template">
+##sentinel project
+
+78 M$ en dos años (2012) con equipo de 50 miembros:
+
+se entregó el 88% de lo que el anterior equipo presupuestó en 458 M$ con metodologías tradicionales
+
+<small>fuente: [Agile Project Management for Government](http://www.amazon.com/Agile-Project-Management-Government-Wernham/dp/0957223404)</small>
+
+                </script>
+                </section>
+
  <section data-markdown >
                 <script type="text/template">
 ## ¿y en España?
@@ -211,7 +245,7 @@ duración estimada: **6 meses**
 <section data-markdown>
                 <script type="text/template">
 #icane
-sistema **Grails** + MySQL para la gestión de workflow de series estadísticas
+sistema **Java** + MySQL para la gestión de workflow de series estadísticas
 
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
@@ -257,7 +291,7 @@ requeridos parámetros de **garantía de calidad**:
 - complejidad ciclomática < 10
 - validación xhtml
 - validación accesibilidad CTT
-- validación con codenarc
+- validación con checklists
 
 <!-- .element: class="fragment" data-fragment-index="4" -->
 
@@ -366,6 +400,52 @@ requeridos parámetros de **garantía de calidad**:
             });
 
         </script>
+<a class="fork-reveal" style="display: none;" href="./index.html#/1"><img style="position: absolute; top: 0; right: 0; border: 0; padding-top:10; padding-right:10; " src="./img/i.png" alt="Índice"></a>
+		<div class="share-reveal" style="display: none; position: absolute; bottom: 16px; left: 20%; margin-left: -139px; z-index: 20;">
+			
+		</div>
 
+		<style>
+			/* Social sharing */
+			.share-reveal a {
+				display: inline-block;
+				height: 34px;
+				line-height: 34px;
+				padding: 0 10px;
+				color: #fff;
+				font-family: Helvetica;
+				text-decoration: none;
+				font-size: 12px;
+				vertical-align: top;
+				text-transform: uppercase;
+				box-sizing: border-box;
+			}
+
+			.share-reveal svg {
+				vertical-align: middle;
+			}
+
+			.share-reveal a + a {
+				margin-left: 10px;
+			}
+		</style>
+
+
+		<script>
+			[].slice.call( document.querySelectorAll( '.share-reveal-facebook, .share-reveal-twitter' ) ).forEach( function( element ) {
+				element.addEventListener( 'click', function( event ) {
+					event.preventDefault();
+					var width = 500, height = 300;
+					var winTop = window.screenY + (window.screen.height / 2) - (height / 2);
+					var winLeft = window.screenX + (window.screen.width / 2) - (width / 2);
+					window.open(this.href, 'shre', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + width + ',height=' + height);
+				} );
+			} );
+
+			if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+				document.querySelector( '.share-reveal' ).style.display = 'block';
+				document.querySelector( '.fork-reveal' ).style.display = 'block';
+			}
+		</script>
     </body>
 </html>
