@@ -35,9 +35,6 @@
     </head>
 
     <body>
-<div>
-<a href="./index.html#/1"><img alt="índice" src="./img/i.png"></a>
-</div>
         <div class="reveal">
 
             <!-- Any section element inside of this container is displayed as a slide -->
@@ -76,14 +73,63 @@ están construidos en distintas tecnologías y utilizan diferentes tecnologías 
 cliente + backend + base de datos
 <!-- .element: class="fragment" data-fragment-index="1" -->
 ####cualquier cambio en el sistema implica construir y desplegar una nueva versión del backend
-<!-- .element: class="fragment" data-fragment-index="2" -->
-
-- a veces se hace difícil mantener una estructura modular
-- el escalado, de necesitarse, se aplica a todo el sistema y no a la parte que requiere más recursos
-
 <!-- .element: class="fragment" data-fragment-index="3" -->
                 </script>
                 </section>
+
+<section data-markdown >
+                <script type="text/template">
+## múltiples servicios por host
+- más sencillo puramente desde el punto de vista de mantenimiento de host
+<!-- .element: class="fragment" data-fragment-index="1" -->
+- menos overhead con respecto a la virtualización
+<!-- .element: class="fragment" data-fragment-index="2" -->
+- dificultades de monitorización: ¿la CPU de qué servicio?
+<!-- .element: class="fragment" data-fragment-index="3" -->
+- consumición de recursos por parte de un único servicio
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+     </script>
+                </section>
+<section data-markdown >
+                <script type="text/template">
+## múltiples servicios por host
+- riesgo de que un despliegue afecte al resto de servicios
+<!-- .element: class="fragment" data-fragment-index="5" -->
+- posibilidad de dependencias contradictorias
+<!-- .element: class="fragment" data-fragment-index="6" -->
+- inhibe autonomía de equipos: se acaba necesitando gestión centralizada
+<!-- .element: class="fragment" data-fragment-index="7" -->
+- imposibilidad de despliegues basados en imágenes o servidores inmutables
+<!-- .element: class="fragment" data-fragment-index="8" -->
+- no todos los servicios tienen por qué escalar igual
+<!-- .element: class="fragment" data-fragment-index="9" -->
+     </script>
+                </section>
+<section data-markdown >
+                <script type="text/template">
+
+###servidor compartido
+
+idea: facilidad de mantenimiento, herramientas de monitorización por servicio, reducción de overhead de JVM
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+- restricción en la elección técnológica: puede limitar opciones para implementar el servicio, así como de automatización y mantenimiento de sistemas
+<!-- .element: class="fragment" data-fragment-index="2" -->
+- in-memory session state: problemas de escalado
+<!-- .element: class="fragment" data-fragment-index="3" -->
+- mayor dificultad de análisis de uso de recursos y threads
+<!-- .element: class="fragment" data-fragment-index="4" -->
+- coste de licencias y de características no usadas
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+**alternativas a considerar**: servicios auto-contenidos
+
+<!-- .element: class="fragment" data-fragment-index="6" -->
+
+                </script>
+                </section>
+
 <section data-markdown>
                 <script type="text/template">
 ![microservices](./img/microservices.png)
@@ -95,7 +141,7 @@ cliente + backend + base de datos
  <script type="text/template">
 ## servicios como componentes
 
-- componentes: unidad de software independiemente reemplazable y actualizable
+- componentes: unidad de software independientemente reemplazable y actualizable
 <!-- .element: class="fragment" data-fragment-index="1" -->
 - biblioteca: componentes enlazados en un programa y llamados usando llamadas a funciones en memoria
 <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -107,7 +153,31 @@ cliente + backend + base de datos
 
 </script>
 </section>
+<section data-markdown >
+                <script type="text/template">
 
+###un servicio por host
+
+monitorización y gestión de contingencias independiente
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+deja de existir un único punto de fallo para todo el sistema global
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+escalado y "securización" independientes
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+posibilidad de despliegues basados en imágenes y servidores inmutables
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+¿coste de licencias?: [Tomcat](http://tomcat.apache.org/)
+
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+más elementos a mantener...
+<!-- .element: class="fragment" data-fragment-index="6" -->
+                </script>
+                </section>
  <section data-markdown>
                 <script type="text/template">
 ## organización según el negocio
@@ -155,7 +225,7 @@ evitar la [Ley de Conway](http://www.melconway.com/Home/Committees_Paper.html):
 <section data-markdown>
                 <script type="text/template">
 ##comunicación sencilla
-frente a los ESB, que incluyen sofisticados sistemas de enrutado, coreografía, transformación, reglas de negocio, etc...
+frente a los ESB, que incluyen sofisticados sistemas de enrutado, "orquestación", transformación, reglas de negocio, etc...
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ####microservicios desacoplados y coherentes, usando HTTP
@@ -240,6 +310,30 @@ mayor **complejidad de mantenimiento**: paliable con gestión de la configuraci�
 
                 </script>
                 </section>
+<section data-markdown >
+                <script type="text/template">
+### imágenes como artefactos
+
+abstracción del servicio en una máquina virtual
+
+###servidores inmutables
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+####aseguramos que nunca se hacen cambios en servidores en ejecución
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+cualquier cambio se realiza a través de una pipeline para crear una nueva VM
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+!!hasta podemos deshabilitar el acceso SSH!!
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+<small>fuente: [Building microservices, Sam Newman](http://shop.oreilly.com/product/0636920033158.do)</small>
+<!-- .element: class="fragment" data-fragment-index="5" -->
+                </script>
+                </section>
+
+
                 </section>
 <section>
                 <section data-markdown>
@@ -360,7 +454,7 @@ ayuda a **entregar valor**
 
 ####contras
 
-hay que conocer ruby
+hay que conocer su lenguaje de configuración (programación)
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 problemas de escalado con decenas de miles de nodos
@@ -405,8 +499,6 @@ informar
 
 ###patrón rol-perfil-módulo
 ![puppet_pattern.png](./img/puppet_pattern.png)
-
-
                 </script>
                 </section>
 <section data-markdown>
@@ -574,6 +666,38 @@ separación entre lógica (módulos) y datos en yaml (hiera)
 	      - path: '/gc/manager'
 	        url: 'http://localhost:8087/manager'
 
+                </section>
+<section data-markdown>
+                <script type="text/template">
+##algunos datos...
+
+[DB on demand (CERN)](https://indico.cern.ch/event/404359/contribution/21/attachments/1160775/1671130/dbod-2.0.pdf)
+
+255 instancias de DB (8 Oracle 11g, 30 PostgreSQL, resto MySQL)
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+~ 10 TB de datos
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+3 técnicos FTE
+<!-- .element: class="fragment" data-fragment-index="3" -->
+
+2 bugs de MySQL en 4 años
+<!-- .element: class="fragment" data-fragment-index="4" -->
+
+provisión automática + 1-click backup, restore y upgrade
+<!-- .element: class="fragment" data-fragment-index="5" -->
+
+
+                </script>
+                </section>
+<section data-markdown>
+                <script type="text/template">
+![estadísticas dbod](./img/dbod-stats.png)
+
+<small>[cortesía de Ignacio Coterillo Coz](mailto:ignacio.coterillo@cern.ch)</small>
+
+ </script>
                 </section>
 </section>
 <section>
@@ -797,6 +921,52 @@ permiten compartir una sesión de consola remotamente con ssh
             });
 
         </script>
+<a class="fork-reveal" style="display: none;" href="./index.html#/1"><img style="position: absolute; top: 0; right: 0; border: 0; padding-top:10; padding-right:10; " src="./img/i.png" alt="Índice"></a>
+		<div class="share-reveal" style="display: none; position: absolute; bottom: 16px; left: 20%; margin-left: -139px; z-index: 20;">
+			
+		</div>
 
+		<style>
+			/* Social sharing */
+			.share-reveal a {
+				display: inline-block;
+				height: 34px;
+				line-height: 34px;
+				padding: 0 10px;
+				color: #fff;
+				font-family: Helvetica;
+				text-decoration: none;
+				font-size: 12px;
+				vertical-align: top;
+				text-transform: uppercase;
+				box-sizing: border-box;
+			}
+
+			.share-reveal svg {
+				vertical-align: middle;
+			}
+
+			.share-reveal a + a {
+				margin-left: 10px;
+			}
+		</style>
+
+
+		<script>
+			[].slice.call( document.querySelectorAll( '.share-reveal-facebook, .share-reveal-twitter' ) ).forEach( function( element ) {
+				element.addEventListener( 'click', function( event ) {
+					event.preventDefault();
+					var width = 500, height = 300;
+					var winTop = window.screenY + (window.screen.height / 2) - (height / 2);
+					var winLeft = window.screenX + (window.screen.width / 2) - (width / 2);
+					window.open(this.href, 'shre', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + width + ',height=' + height);
+				} );
+			} );
+
+			if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+				document.querySelector( '.share-reveal' ).style.display = 'block';
+				document.querySelector( '.fork-reveal' ).style.display = 'block';
+			}
+		</script>
     </body>
 </html>
