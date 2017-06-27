@@ -4,7 +4,7 @@ Diapositivas para el curso de formación *Desarrollo ágil de software* para el 
 
 Ediciones: 1
 
-##¿Cómo generar un PDF con las diapositivas?
+## ¿Cómo generar un PDF con las diapositivas?
 
 - Abrir un navegador Chrome
 - Introducir la URL del tema en cuestión y añadirle el parámetro `pdf-print`. Ejemplo:
@@ -13,6 +13,6 @@ Ediciones: 1
 
 - Seleccionar la opción `imprimir` de Chrome y guardar como PDF
 
-##Material adicional
+## Material adicional
 
 La documentación relativa al proyecto de ejemplo usando metodologías ágiles estará disponible en la Oficina Virtual.
